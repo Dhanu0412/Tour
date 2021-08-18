@@ -29,22 +29,18 @@ public class PackageBooking {
 
 	@ManyToOne
 	@JoinColumn(name = "packageID", referencedColumnName = "PACKAGEID")
-	private Package pack;
+	private Packages pack;
 	
 	@ManyToOne
-	@JoinColumn(name = "customerID")
+	@JoinColumn(name = "customerID", referencedColumnName = "CUSTOMERID")
 	private Customer customer;
-	
-//	@OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-//	@JoinColumn(name = "paymentID_FK")
-//	private Payment payment;
 
 	public PackageBooking() {
 		super();
 	}
 
 	public PackageBooking(int packageBookingID, int noOfDays, int noOfPeope, double packageCost, Date startDate,
-			Date endDate, Package pack, Customer customer) {//, com.tp.tourpackhiber.Payment payment) {
+			Date endDate, Packages pack, Customer customer) {//, com.tp.tourpackhiber.Payment payment) {
 		super();
 		this.packageBookingID = packageBookingID;
 		this.noOfDays = noOfDays;
@@ -54,7 +50,6 @@ public class PackageBooking {
 		this.endDate = endDate;
 		this.pack = pack;
 		this.customer = customer;
-//		this.payment = payment;
 	}
 
 	public int getPackageBookingID() {
@@ -105,35 +100,19 @@ public class PackageBooking {
 		this.endDate = endDate;
 	}
 
-	public Package getPack() {
+	public Packages getPack() {
 		return pack;
 	}
 
-	public void setPack(Package pack) {
+	public void setPack(Packages pack) {
 		this.pack = pack;
 	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-//	public Payment getPayment() {
-//		return payment;
-//	}
-//
-//	public void setPayment(Payment payment) {
-//		this.payment = payment;
-//	}
 
 	@Override
 	public String toString() {
 		return "PackageBooking [packageBookingID=" + packageBookingID + ", noOfDays=" + noOfDays + ", noOfPeope="
 				+ noOfPeope + ", packageCost=" + packageCost + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", pack=" + pack + ", customer=" + customer + "]";//+ ", payment=" + payment + "]";
+				+ ", pack=" + pack +"]";
 	}
 
 }

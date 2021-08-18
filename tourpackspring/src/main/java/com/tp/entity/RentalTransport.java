@@ -22,14 +22,14 @@ public class RentalTransport {
 
 	@OneToOne
 	@JoinColumn(name = "packageID",referencedColumnName = "PACKAGEID")
-	private Package pack;
+	private Packages pack;
 
 	public RentalTransport() {
 		super();
 		System.out.println("From RentalTransport");
 	}
 
-	public RentalTransport(int rentalTransportID, String vehicleProvider, Package pack) {
+	public RentalTransport(int rentalTransportID, String vehicleProvider, Packages pack) {
 		super();
 		this.rentalTransportID = rentalTransportID;
 		this.vehicleProvider = vehicleProvider;
@@ -52,11 +52,11 @@ public class RentalTransport {
 		this.vehicleProvider = vehicleProvider;
 	}
 
-	public Package getPack() {
+	public Packages getPack() {
 		return pack;
 	}
 
-	public void setPack(Package pack) {
+	public void setPack(Packages pack) {
 		this.pack = pack;
 	}
 

@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -21,20 +23,25 @@ public class Customer {
 	@Id
 	@GeneratedValue
 	private int customerID;
-
+	
 	@Embedded
 	private Name customerName;
-
+	@Column
 	private String gender;
+	@Column
 	private String password;
+	@Column
 	private String username;
+	@Column
 	private String email;
-
-	@Temporal(TemporalType.DATE)
+	
+	@Column
 	private Date dateOfBirth;
+	@Column
 	private long phone;
 	
-	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+	@OneToOne
+	@JoinColumn(name = "addressID",referencedColumnName = "ADDRESSID")
 	private Address address;
 	
 	@OneToMany(targetEntity = PackageBooking.class, mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -45,7 +52,7 @@ public class Customer {
 	}
 
 	public Customer(int customerID, Name customerName, String gender, String password, String username, String email,
-			Date dateOfBirth, long phone, Address address, List<PackageBooking> packageBooking) {
+			Date dateOfBirth, long phone, Address address) {
 		super();
 		this.customerID = customerID;
 		this.customerName = customerName;
@@ -56,7 +63,6 @@ public class Customer {
 		this.dateOfBirth = dateOfBirth;
 		this.phone = phone;
 		this.address = address;
-		this.packageBooking = packageBooking;
 	}
 
 	public int getCustomerID() {
@@ -131,20 +137,11 @@ public class Customer {
 		this.address = address;
 	}
 
-	public List<PackageBooking> getPackageBooking() {
-		return packageBooking;
-	}
-
-	public void setPackageBooking(List<PackageBooking> packageBooking) {
-		this.packageBooking = packageBooking;
-	}
-
 	@Override
 	public String toString() {
 		return "Customer [customerID=" + customerID + ", customerName=" + customerName + ", gender=" + gender
 				+ ", password=" + password + ", username=" + username + ", email=" + email + ", dateOfBirth="
-				+ dateOfBirth + ", phone=" + phone + ", address=" + address + ", packageBooking=" + packageBooking
-				+ "]";
+				+ dateOfBirth + ", phone=" + phone + ", address=" + address + "]";
 	}
 
 }

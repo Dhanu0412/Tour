@@ -2,16 +2,16 @@ package com.tp.dao;
 
 import java.util.List;
 
-import com.tp.entity.Package;
+import com.tp.entity.Packages;
 
 public interface PackageDao {
 	
-	public void createPackage(Package pack);
-	public List<Package> getAllPackages();
-	public Package getPackage(Package pack);
-	public List<Package> updatePackage(Package pack);
-	public List<Package> deletePackage(int pno);
+	public void createPackage(Packages pack);
+	public List<Packages> getAllPackages();
+	public Packages getPackage(Packages pack);
+	public List<Packages> updatePackage(Packages pack);
+	public List<Packages> deletePackage(int pno);
 	
-	public Package getPackageById(int pid);
+	public Packages getPackageById(int pid);
 
 }

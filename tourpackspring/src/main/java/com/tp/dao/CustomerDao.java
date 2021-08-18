@@ -11,6 +11,7 @@ public interface CustomerDao {
 	public Customer getCustomer(Customer customer);
 	public List<Customer> updateCustomer(Customer customer);
 	public List<Customer> deleteCustomer(int cno);
-	public List<Customer> getCustomerById(int cid);
+	
+	public Customer getCustomerById(int cid);
 
 }

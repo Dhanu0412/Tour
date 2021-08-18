@@ -32,7 +32,14 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="annotatedClasses">
 			<list>
-				<value>com.mph.entity.Employee</value>
+				<value>com.tp.entity.Address</value>
+				<value>com.tp.entity.Customer</value>
+				<value>com.tp.entity.FourWheeler</value>
+				<value>com.tp.entity.Name</value>
+				<value>com.tp.entity.Packages</value>
+				<value>com.tp.entity.PackageBooking</value>
+				<value>com.tp.entity.RentalTransport</value>
+				<value>com.tp.entity.TwoWheeler</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -51,5 +58,9 @@
 	<bean id="customer" class="com.tp.entity.Customer"/>
 	<bean id="customerDao" class="com.tp.dao.CustomerDaoImpl"/>
 	<bean id="customerService" class="com.tp.service.CustomerServiceImpl"/>
+	
+	<bean id="pack" class="com.tp.entity.Packages"/>
+	<bean id="packageDao" class="com.tp.dao.PackageDaoImpl"/>
+	<bean id="packageService" class="com.tp.service.PackageServiceImpl"/>
 			
 </beans>

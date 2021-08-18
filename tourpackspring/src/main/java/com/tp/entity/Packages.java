@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Package {
+public class Packages {
 
 	@Id
 	@GeneratedValue
@@ -30,13 +30,12 @@ public class Package {
 	@OneToMany(targetEntity = PackageBooking.class, mappedBy = "pack", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<PackageBooking> packageBooking;
 
-	public Package() {
+	public Packages() {
 		super();
 	}
 
-	public Package(int packageID, String packageName, String itenary, String location, String hotelName,
-			double hotelCostPerDay, double costPerDay, RentalTransport rentalTransport,
-			List<PackageBooking> packageBooking) {
+	public Packages(int packageID, String packageName, String itenary, String location, String hotelName,
+			double hotelCostPerDay, double costPerDay) {
 		super();
 		this.packageID = packageID;
 		this.packageName = packageName;
@@ -45,8 +44,6 @@ public class Package {
 		this.hotelName = hotelName;
 		this.hotelCostPerDay = hotelCostPerDay;
 		this.costPerDay = costPerDay;
-		this.rentalTransport = rentalTransport;
-		this.packageBooking = packageBooking;
 	}
 
 	public int getPackageID() {
@@ -105,28 +102,11 @@ public class Package {
 		this.costPerDay = costPerDay;
 	}
 
-	public RentalTransport getRentalTransport() {
-		return rentalTransport;
-	}
-
-	public void setRentalTransport(RentalTransport rentalTransport) {
-		this.rentalTransport = rentalTransport;
-	}
-
-	public List<PackageBooking> getPackageBooking() {
-		return packageBooking;
-	}
-
-	public void setPackageBooking(List<PackageBooking> packageBooking) {
-		this.packageBooking = packageBooking;
-	}
-
 	@Override
 	public String toString() {
-		return "Package [packageID=" + packageID + ", packageName=" + packageName + ", itenary=" + itenary
+		return "Packages [packageID=" + packageID + ", packageName=" + packageName + ", itenary=" + itenary
 				+ ", location=" + location + ", hotelName=" + hotelName + ", hotelCostPerDay=" + hotelCostPerDay
-				+ ", costPerDay=" + costPerDay + ", rentalTransport=" + rentalTransport + ", packageBooking="
-				+ packageBooking + "]";
+				+ ", costPerDay=" + costPerDay + "]";
 	}
 	
 }

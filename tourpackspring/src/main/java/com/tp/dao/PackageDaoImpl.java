@@ -10,8 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.tp.entity.Customer;
-import com.tp.entity.Package;
+import com.tp.entity.Packages;
 
 @Repository
 public class PackageDaoImpl implements PackageDao{
@@ -25,45 +24,43 @@ public class PackageDaoImpl implements PackageDao{
 	}
 
 	@Override
-	public void createPackage(Package pack) {
-		// TODO Auto-generated method stub
+	public void createPackage(Packages pack) {
+		
 		getSession().saveOrUpdate(pack);
 		System.out.println("Package has been stored successfully in DB !");
+	}
+
+	@Override
+	public List<Packages> getAllPackages() {
 		
-	}
-
-	@Override
-	public List<Package> getAllPackages() {
-		// TODO Auto-generated method stub
 		Query query = getSession().createQuery("from Package pack");
-		List<Package> packlist = query.list();
+		List<Packages> packlist = query.list();
 		System.out.println(packlist);
-		return packlist; 
+		return packlist;
 	}
 
 	@Override
-	public Package getPackage(Package pack) {
-		// TODO Auto-generated method stub
-		Criteria c = getSession().createCriteria(Package.class);
+	public Packages getPackage(Packages pack) {
+		
+		Criteria c = getSession().createCriteria(Packages.class);
 		c.add(Restrictions.eq("packagename", pack.getPackageName()));
 		c.add(Restrictions.eq("location", pack.getLocation()));
-		Package p = (Package)c.uniqueResult();
+		Packages p = (Packages)c.uniqueResult();
 		System.out.println("Package Retrieved : " + p);
 		return p;
 	}
 
 	@Override
-	public List<Package> updatePackage(Package pack) {
-		// TODO Auto-generated method stub
-		Query query = getSession().createQuery("update Package pack set packagename=:packagename,itenary=:itenary,email=:email,password=:password where eid=:eno");
+	public List<Packages> updatePackage(Packages pack) {
+		
+		Query query = getSession().createQuery("update Package pack set packagename=:packagename,itenary=:itenary,location=:location,hotelname=:hotelname,hotelcostperday=:hotelcostperday,costperday=:costperday where packageid=:pno");
 		query.setParameter("packagename", pack.getPackageName());
 		query.setParameter("itenary", pack.getItenary());
 		query.setParameter("location", pack.getLocation());
 		query.setParameter("hotelname", pack.getHotelName());
 		query.setParameter("hotelcostperDay", pack.getHotelCostPerDay());
 		query.setParameter("costperday", pack.getCostPerDay());
-		query.setParameter("rentaltransport", pack.getRentalTransport());
-		query.setParameter("packagebooking", pack.getPackageBooking());
+		query.setParameter("pno",pack.getPackageID());
 		int noofrows = query.executeUpdate();
 		if(noofrows >0)
 		{
@@ -74,9 +71,9 @@ public class PackageDaoImpl implements PackageDao{
 	}
 
 	@Override
-	public List<Package> deletePackage(int pno) {
-		// TODO Auto-generated method stub
-		Query query = getSession().createQuery("delete from Package pack where pid=:pno");
+	public List<Packages> deletePackage(int pno) {
+		
+		Query query = getSession().createQuery("delete from Package pack where packageid=:pno");
 		query.setParameter("pno", pno);
 		int noofrows = query.executeUpdate();
 		if(noofrows >0)
@@ -88,13 +85,13 @@ public class PackageDaoImpl implements PackageDao{
 	}
 
 	@Override
-	public Package getPackageById(int pid) {
-		// TODO Auto-generated method stub
-		Criteria c = getSession().createCriteria(Package.class);
+	public Packages getPackageById(int pid) {
+		
+		Criteria c = getSession().createCriteria(Packages.class);
 		c.add(Restrictions.eq("packageid", pid));
-		Package packlist = (Package)c.uniqueResult();
-		System.out.println(packlist);
-		return packlist; 
+		Packages pack = (Packages)c.uniqueResult();
+		System.out.println(pack);
+		return pack; 
 	}
 
 }
