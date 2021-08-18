@@ -1,26 +1,21 @@
-package com.tp.dao;
+package com.tp.service;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.tp.dao.CustomerDao;
 import com.tp.entity.Customer;
 
-@Repository
-public class CustomerDaoImpl implements CustomerDao{
-
+@Service
+@Transactional
+public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
-	private SessionFactory sessionFactory;
+	CustomerDao customerDao;
 	
-	protected Session getSession()
-	{
-		return sessionFactory.getCurrentSession();
-	}
-
 	@Override
 	public void createCustomer(Customer customer) {
 		// TODO Auto-generated method stub
@@ -56,5 +51,5 @@ public class CustomerDaoImpl implements CustomerDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }
