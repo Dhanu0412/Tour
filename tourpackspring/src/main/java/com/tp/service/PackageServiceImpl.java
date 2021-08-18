@@ -7,51 +7,50 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tp.dao.PackageDao;
-import com.tp.entity.Package;
+import com.tp.entity.Packages;
 
 @Service
 @Transactional
 public class PackageServiceImpl implements PackageService{
-	
+
 	@Autowired
-	PackageDao packDao;
-
+	PackageDao packageDao;
+	
 	@Override
-	public void createPackage(Package pack) {
-		// TODO Auto-generated method stub
+	public void createPackage(Packages pack) {
 		
-		packDao.createPackage(pack);
+		packageDao.createPackage(pack);
+	}
+
+	@Override
+	public List<Packages> getAllPackages() {
 		
+		return packageDao.getAllPackages();
 	}
 
 	@Override
-	public List<Package> getAllPackages() {
-		// TODO Auto-generated method stub
-		return packDao.getAllPackages();
+	public Packages getPackage(Packages pack) {
+		
+		return packageDao.getPackage(pack);
 	}
 
 	@Override
-	public Package getPackage(Package pack) {
-		// TODO Auto-generated method stub
-		return packDao.getPackage(pack);
+	public List<Packages> updatePackage(Packages pack) {
+		
+		return packageDao.updatePackage(pack);
 	}
 
 	@Override
-	public List<Package> updatePackage(Package pack) {
-		// TODO Auto-generated method stub
-		return packDao.updatePackage(pack);
+	public List<Packages> deletePackage(int pno) {
+		
+		return packageDao.deletePackage(pno);
 	}
 
 	@Override
-	public List<Package> deletePackage(int pno) {
-		// TODO Auto-generated method stub
-		return packDao.deletePackage(pno);
+	public Packages getPackageById(int pid) {
+		
+		return packageDao.getPackageById(pid);
 	}
 
-	@Override
-	public List<Package> getPackageById(int pid) {
-		// TODO Auto-generated method stub
-		return packDao.getPackageById(pid);
-	}
-
+	
 }

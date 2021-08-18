@@ -1,5 +1,6 @@
 package com.tp.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,16 +19,17 @@ public class Address {
 	private String city;
 	private int pincode;
 	
-	@OneToOne
-	@JoinColumn(name = "customerID",referencedColumnName = "CUSTOMERID")
+
+	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
 	private Customer customer;
 
 	public Address() {
 		super();
 	}
 
-	public Address(int doorno, String street, String city, int pincode, Customer customer) {
+	public Address(int addressID, int doorno, String street, String city, int pincode, Customer customer) {
 		super();
+		this.addressID = addressID;
 		this.doorno = doorno;
 		this.street = street;
 		this.city = city;
@@ -75,18 +77,10 @@ public class Address {
 		this.pincode = pincode;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
 	@Override
 	public String toString() {
 		return "Address [addressID=" + addressID + ", doorno=" + doorno + ", street=" + street + ", city=" + city
-				+ ", pincode=" + pincode + ", customer=" + customer + "]";
+				+ ", pincode=" + pincode + "]";
 	}
 	
 }
