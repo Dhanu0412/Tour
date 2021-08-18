@@ -22,9 +22,6 @@ public class Main {
 		Package pack = new Package();
 		Customer customer = new Customer();
 		PackageBooking packageBooking = new PackageBooking();
-//		Payment payment = new Payment();
-//		ModeOfTransport modeOfTransport = new ModeOfTransport();
-//		TransportBooking transportBooking = new TransportBooking();
 		
 		List<PackageBooking> pBook = new ArrayList<PackageBooking>();
 		
@@ -62,32 +59,9 @@ public class Main {
 		
 		pBook.add(packageBooking);
 		
-//		payment.setPackageBooking(packageBooking);
-//		payment.setPaymentDate(formatter.parse("17/08/2021"));
-//		payment.setPaymentMode("UPI");
-//		payment.setPaymentStatus(true);
-//		payment.setRefundStatus(false);
-		
-//		modeOfTransport.setModeName("Train");
-//		modeOfTransport.setChargesPerKm(2);
-//		modeOfTransport.setTransportBooking(transportBooking);
-//		
-//		transportBooking.setDistance(560.0);
-//		transportBooking.setTransportCost(6720.0);
-//		transportBooking.setNoOfPeople(3);
-//		transportBooking.setStartLocation("Bangalore");
-//		transportBooking.setEndLocation("Goa");
-//		transportBooking.setTwoWay(true);
-//		transportBooking.setOnwardDate(formatter.parse("17/08/2021"));
-//		transportBooking.setReturnDate(formatter.parse("22/08/2021"));
-//		transportBooking.setModeOfTransport(modeOfTransport);
-		
 		session.save(customer);
 		session.save(pack);
 		session.save(packageBooking);
-//		session.save(payment);
-//		session.save(modeOfTransport);
-//		session.save(transportBooking);
 		
 		session.getTransaction().commit();
 		System.out.println("Txn completed.");

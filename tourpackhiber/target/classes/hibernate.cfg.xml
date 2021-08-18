@@ -23,8 +23,5 @@
 		<mapping class="com.tp.tourpackhiber.FourWheeler"/>
 		<mapping class="com.tp.tourpackhiber.TwoWheeler"/>
 		<mapping class="com.tp.tourpackhiber.PackageBooking"/>
-<!--	<mapping class="com.tp.tourpackhiber.Payment"/>
-		<mapping class="com.tp.tourpackhiber.ModeOfTransport"/>
-		<mapping class="com.tp.tourpackhiber.TransportBooking"/> -->
 	</session-factory>
 </hibernate-configuration>
