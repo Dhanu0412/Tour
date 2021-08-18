@@ -55,10 +55,11 @@ public class CustomerDaoImpl implements CustomerDao{
 	public List<Customer> updateCustomer(Customer customer) {
 		// TODO Auto-generated method stub
 		Query query = getSession().createQuery("update Customer cus set username=:username,gender=:gender,email=:email,password=:password where eid=:eno");
-		query.setParameter("fname", customer.getUsername());
+		query.setParameter("fname", customer.getUsername.getFname());
 		//query.setParameter("lname", customer.getLname());
 		query.setParameter("gender", customer.getGender());
 		query.setParameter("email", customer.getEmail());
+		query.setParameter("password", customer.getPassword());
 		query.setParameter("password", customer.getPassword());
 //		query.setParameter("cno", customer.getCid());
 		int noofrows = query.executeUpdate();

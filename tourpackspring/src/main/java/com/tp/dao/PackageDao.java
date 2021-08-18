@@ -12,6 +12,6 @@ public interface PackageDao {
 	public List<Package> updatePackage(Package pack);
 	public List<Package> deletePackage(int pno);
 	
-	public List<Package> getPackageById(int pid);
+	public Package getPackageById(int pid);
 
 }
