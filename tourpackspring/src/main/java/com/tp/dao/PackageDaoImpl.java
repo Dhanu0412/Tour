@@ -33,7 +33,7 @@ public class PackageDaoImpl implements PackageDao{
 	@Override
 	public List<Packages> getAllPackages() {
 		
-		Query query = getSession().createQuery("from Package pack");
+		Query query = getSession().createQuery("from Packages pack");
 		List<Packages> packlist = query.list();
 		System.out.println(packlist);
 		return packlist;
@@ -61,7 +61,7 @@ public class PackageDaoImpl implements PackageDao{
 	@Override
 	public List<Packages> deletePackage(int pno) {
 		
-		Query query = getSession().createQuery("delete from Package pack where packageid=:pno");
+		Query query = getSession().createQuery("delete from Packages pack where packageid=:pno");
 		query.setParameter("pno", pno);
 		int noofrows = query.executeUpdate();
 		if(noofrows >0)
