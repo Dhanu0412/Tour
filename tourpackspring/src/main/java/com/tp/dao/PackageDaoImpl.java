@@ -27,7 +27,7 @@ public class PackageDaoImpl implements PackageDao{
 	}
 
 	@Override
-	public List<Package> getAllPackage() {
+	public List<Package> getAllPackages() {
 		// TODO Auto-generated method stub
 		return null;
 	}
