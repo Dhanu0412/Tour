@@ -52,20 +52,8 @@ public class PackageDaoImpl implements PackageDao{
 
 	@Override
 	public List<Packages> updatePackage(Packages pack) {
-		
-		Query query = getSession().createQuery("update Package pack set packagename=:packagename,itenary=:itenary,location=:location,hotelname=:hotelname,hotelcostperday=:hotelcostperday,costperday=:costperday where packageid=:pno");
-		query.setParameter("packagename", pack.getPackageName());
-		query.setParameter("itenary", pack.getItenary());
-		query.setParameter("location", pack.getLocation());
-		query.setParameter("hotelname", pack.getHotelName());
-		query.setParameter("hotelcostperDay", pack.getHotelCostPerDay());
-		query.setParameter("costperday", pack.getCostPerDay());
-		query.setParameter("pno",pack.getPackageID());
-		int noofrows = query.executeUpdate();
-		if(noofrows >0)
-		{
-			System.out.println("Updated " + noofrows + " rows");
-		}
+		getSession().saveOrUpdate(pack);
+		System.out.println("Package has been updated successfully in DB !");
 		
 		return getAllPackages();
 	}
@@ -88,7 +76,7 @@ public class PackageDaoImpl implements PackageDao{
 	public Packages getPackageById(int pid) {
 		
 		Criteria c = getSession().createCriteria(Packages.class);
-		c.add(Restrictions.eq("packageid", pid));
+		c.add(Restrictions.eq("packageID", pid));
 		Packages pack = (Packages)c.uniqueResult();
 		System.out.println(pack);
 		return pack; 

@@ -28,7 +28,7 @@ public class CustomerRestController {
 	public ResponseEntity<List<Customer>> allCustomer() {
 		
 		List<Customer> cuslist = customerService.getAllCustomers();
-		System.out.println("From Rest allemp : " + cuslist);
+		System.out.println("From Rest allcus : " + cuslist);
 		
 		if(cuslist.isEmpty()) {
 			
