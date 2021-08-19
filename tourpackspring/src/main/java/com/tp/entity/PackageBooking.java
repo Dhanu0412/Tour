@@ -40,7 +40,7 @@ public class PackageBooking {
 	}
 
 	public PackageBooking(int packageBookingID, int noOfDays, int noOfPeope, double packageCost, Date startDate,
-			Date endDate, Packages pack, Customer customer) {//, com.tp.tourpackhiber.Payment payment) {
+			Date endDate, Packages pack, Customer customer) {
 		super();
 		this.packageBookingID = packageBookingID;
 		this.noOfDays = noOfDays;
@@ -108,11 +108,19 @@ public class PackageBooking {
 		this.pack = pack;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
 	@Override
 	public String toString() {
 		return "PackageBooking [packageBookingID=" + packageBookingID + ", noOfDays=" + noOfDays + ", noOfPeope="
 				+ noOfPeope + ", packageCost=" + packageCost + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", pack=" + pack +"]";
+				+ ", pack=" + pack + ", customer=" + customer + "]";
 	}
 
 }

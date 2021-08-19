@@ -8,7 +8,6 @@ public interface PackageService {
 
 	public void createPackage(Packages pack);
 	public List<Packages> getAllPackages();
-	public Packages getPackage(Packages pack);
 	public List<Packages> updatePackage(Packages pack);
 	public List<Packages> deletePackage(int pno);
 	

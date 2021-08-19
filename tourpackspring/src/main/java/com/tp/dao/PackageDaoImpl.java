@@ -40,21 +40,10 @@ public class PackageDaoImpl implements PackageDao{
 	}
 
 	@Override
-	public Packages getPackage(Packages pack) {
-		
-		Criteria c = getSession().createCriteria(Packages.class);
-		c.add(Restrictions.eq("packagename", pack.getPackageName()));
-		c.add(Restrictions.eq("location", pack.getLocation()));
-		Packages p = (Packages)c.uniqueResult();
-		System.out.println("Package Retrieved : " + p);
-		return p;
-	}
-
-	@Override
 	public List<Packages> updatePackage(Packages pack) {
+		
 		getSession().saveOrUpdate(pack);
 		System.out.println("Package has been updated successfully in DB !");
-		
 		return getAllPackages();
 	}
 
@@ -68,7 +57,6 @@ public class PackageDaoImpl implements PackageDao{
 		{
 			System.out.println("Deleted " + noofrows + " rows");
 		}
-		
 		return getAllPackages();
 	}
 

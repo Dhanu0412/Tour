@@ -29,12 +29,6 @@ public class PackageServiceImpl implements PackageService{
 	}
 
 	@Override
-	public Packages getPackage(Packages pack) {
-		
-		return packageDao.getPackage(pack);
-	}
-
-	@Override
 	public List<Packages> updatePackage(Packages pack) {
 		
 		return packageDao.updatePackage(pack);

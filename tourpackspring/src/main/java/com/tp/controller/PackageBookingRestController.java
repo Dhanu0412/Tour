@@ -27,7 +27,7 @@ public class PackageBookingRestController {
 	@GetMapping("/allPackBooking")
 	public ResponseEntity<List<PackageBooking>> allPackageBookings() {
 		
-		List<PackageBooking> packbookinglist = packageBookingService.getAllPackageBooking();
+		List<PackageBooking> packbookinglist = packageBookingService.getAllPackageBookings();
 		System.out.println("From Rest allpackBooking : " + packbookinglist);
 		
 		if(packbookinglist.isEmpty()) {
@@ -83,16 +83,16 @@ public class PackageBookingRestController {
 	}
 	
 	@GetMapping("/getPackBookingCustomer/{id}")
-	public ResponseEntity<PackageBooking> getPackageBookingByCId(@PathVariable("id") int cid) {
+	public ResponseEntity<List<PackageBooking>> getPackageBookingByCId(@PathVariable("id") int cid) {
 		
-		PackageBooking packBooking = packageBookingService.getPackageBookingByCId(cid);
+		List<PackageBooking> packBooking = packageBookingService.getPackageBookingByCId(cid);
 		System.out.println("From Rest update packBooking : " + packBooking);
 		
 		if(packBooking == null) {
 			
-			return new ResponseEntity<PackageBooking>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<List<PackageBooking>>(HttpStatus.NO_CONTENT);
 		}
-		return new ResponseEntity<PackageBooking>(packBooking,HttpStatus.OK);		
+		return new ResponseEntity<List<PackageBooking>>(packBooking,HttpStatus.OK);		
 	}
 	
 	
