@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tp.entity.Customer;
 import com.tp.service.CustomerService;
 
+
 @RestController
 @RequestMapping(value = "/customer")
 public class CustomerRestController {
@@ -60,7 +61,7 @@ public class CustomerRestController {
 	public ResponseEntity<List<Customer>> deleteCustomer(@PathVariable("id") int cid) {
 		
 		List<Customer> cuslist = customerService.deleteCustomer(cid);
-		System.out.println("From Rest update cus : " + cuslist);
+		System.out.println("From Rest delete cus : " + cuslist);
 		
 		if(cuslist.isEmpty()) {
 			
@@ -73,7 +74,7 @@ public class CustomerRestController {
 	public ResponseEntity<Customer> getCustomer(@PathVariable("id") int cid) {
 		
 		Customer cus = customerService.getCustomerById	(cid);
-		System.out.println("From Rest update cus : " + cus);
+		System.out.println("From Rest get cus by id : " + cus);
 		
 		if(cus == null) {
 			
@@ -81,5 +82,19 @@ public class CustomerRestController {
 		}
 		return new ResponseEntity<Customer>(cus,HttpStatus.OK);		
 	}
+	
+	@GetMapping("/getCus")
+	public ResponseEntity<Customer> getCustomer(@RequestBody Customer customer) {
+		
+		Customer cus = customerService.getCustomer(customer);
+		System.out.println("From Rest get cus : " + cus);
+		
+		if(cus == null) {
+			
+			return new ResponseEntity<Customer>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<Customer>(cus,HttpStatus.OK);		
+	}
+	
 	
 }

@@ -14,43 +14,43 @@ import com.tp.entity.PackageBooking;
 public class PackageBookingServiceImpl implements PackageBookingService{
 	
 	@Autowired
-	PackageBookingDao packBookingDao;
+	PackageBookingDao packageBookingDao;
 	
 	@Override
 	public void createPackageBooking(PackageBooking packBook) {
 		
-		packBookingDao.createPackageBooking(packBook);
+		packageBookingDao.createPackageBooking(packBook);
 		
 	}
 
 	@Override
 	public List<PackageBooking> getAllPackageBookings() {
 		
-		return packBookingDao.getAllPackageBookings();
+		return packageBookingDao.getAllPackageBookings();
 	}
 
 	@Override
 	public List<PackageBooking> updatePackageBooking(PackageBooking packBook) {
 		
-		return packBookingDao.updatePackageBooking(packBook);
+		return packageBookingDao.updatePackageBooking(packBook);
 	}
 
 	@Override
 	public List<PackageBooking> deletePackageBooking(int pbno) {
 		
-		return packBookingDao.deletePackageBooking(pbno);
+		return packageBookingDao.deletePackageBooking(pbno);
 	}
 
 	@Override
 	public PackageBooking getPackageBookingById(int pbid) {
 		
-		return packBookingDao.getPackageBookingById(pbid);
+		return packageBookingDao.getPackageBookingById(pbid);
 	}
 
 	@Override
 	public List<PackageBooking> getPackageBookingByCId(int cid) {
 		
-		return packBookingDao.getPackageBookingsByCId(cid);
+		return packageBookingDao.getPackageBookingsByCId(cid);
 	}
 	
 }

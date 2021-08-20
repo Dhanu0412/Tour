@@ -35,10 +35,10 @@ public class Customer {
 	@Column
 	private String email;
 	
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	@Column
-	private long phone;
+	private String phone;
 	
 	@OneToOne
 	@JoinColumn(name = "addressID",referencedColumnName = "ADDRESSID")
@@ -52,7 +52,7 @@ public class Customer {
 	}
 
 	public Customer(int customerID, Name customerName, String gender, String password, String username, String email,
-			Date dateOfBirth, long phone, Address address) {
+			Date dateOfBirth, String phone, Address address) {
 		super();
 		this.customerID = customerID;
 		this.customerName = customerName;
@@ -121,11 +121,11 @@ public class Customer {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public long getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(long phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

@@ -2,6 +2,7 @@ package com.tp.dao;
 
 import java.util.List;
 
+import com.tp.entity.Address;
 import com.tp.entity.Customer;
 
 public interface CustomerDao {
@@ -13,5 +14,6 @@ public interface CustomerDao {
 	public List<Customer> deleteCustomer(int cno);
 	
 	public Customer getCustomerById(int cid);
+	void createAddress(Address address);
 
 }
