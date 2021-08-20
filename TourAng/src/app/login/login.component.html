@@ -1,0 +1,32 @@
+<div class="container" id="container">
+    <div class="form-container log-in-container">
+        <form action="logincustomer" method="post">
+            <h1>Login</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
+                <a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
+            </div>
+            <span>or use your account</span>
+            <input type="email" placeholder="Email" id="lblemail" name="txtemail" [(ngModel)]="customerDetails.email" />
+            <input type="password" placeholder="Password" id="lblpassword" name="txtpassword"
+                [(ngModel)]="customerDetails.password" />
+            {{customerDetails.password}}
+            <br>
+            {{customer.password}}
+            <a href="#">Forgot your password?</a>
+            <button type="submit" (click)="loginCustomer()">Log In</button>
+            {{message}}
+            <a routerLink="/sign-up" routerLinkActive="active">If New User,Register Here!!!</a>
+
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h1>Customer Login Page</h1>
+                <p>This website is full of Discounts And provides Best Tour Packages in the Market</p>
+                {{customer.customerID}}{{customer.customerName.fname}}{{customer.customerName.lname}}
+            </div>
+        </div>
+    </div>
+</div>
