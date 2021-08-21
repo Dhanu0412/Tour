@@ -10,7 +10,6 @@ public interface CustomerDao {
 	public void createCustomer(Customer customer);
 	public List<Customer> getAllCustomers();
 
-	/* public Customer getCustomer(Customer customer); */
 	public List<Customer> updateCustomer(Customer customer);
 	public List<Customer> deleteCustomer(int cno);
 	

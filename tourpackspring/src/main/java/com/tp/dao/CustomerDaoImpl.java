@@ -10,10 +10,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tp.entity.Customer;
 
 @Repository
+@Transactional
 public class CustomerDaoImpl implements CustomerDao{
 
 
@@ -44,16 +46,6 @@ public class CustomerDaoImpl implements CustomerDao{
 		}
 		return cuslist;
 	}
-
-//	@Override
-//	public Customer getCustomer(Customer customer) {
-//		Criteria c = getSession().createCriteria(Customer.class);
-//		c.add(Restrictions.eq("email", customer.getEmail()));
-//		c.add(Restrictions.eq("password", customer.getPassword()));
-//		Customer cus = (Customer)c.uniqueResult();
-//		System.out.println("Customer Retrieved : " + cus);
-//		return cus;
-//	}
 	
 	@Override
 	public Customer getCustomer(String email) {
