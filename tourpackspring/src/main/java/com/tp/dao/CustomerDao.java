@@ -9,11 +9,12 @@ public interface CustomerDao {
 	
 	public void createCustomer(Customer customer);
 	public List<Customer> getAllCustomers();
-	public Customer getCustomer(Customer customer);
+
+	/* public Customer getCustomer(Customer customer); */
 	public List<Customer> updateCustomer(Customer customer);
 	public List<Customer> deleteCustomer(int cno);
 	
 	public Customer getCustomerById(int cid);
-	void createAddress(Address address);
+	public Customer getCustomer(String email);
 
 }

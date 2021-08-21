@@ -2,20 +2,24 @@ package com.tp.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class PackageBooking {
 
 	@Id
 	@GeneratedValue
-	private int packageBookingID;
+	private int packBookID;
 
 	private int noOfDays;
 	private int noOfPeope;
@@ -27,22 +31,27 @@ public class PackageBooking {
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "packageID", referencedColumnName = "PACKAGEID")
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private Packages pack;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "customerID", referencedColumnName = "CUSTOMERID")
 	private Customer customer;
+	
+	@OneToOne(targetEntity = RentalTransport.class, cascade=CascadeType.ALL)
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+	private RentalTransport rentTransport;
 
 	public PackageBooking() {
 		super();
 	}
 
-	public PackageBooking(int packageBookingID, int noOfDays, int noOfPeope, double packageCost, Date startDate,
-			Date endDate, Packages pack, Customer customer) {
+	public PackageBooking(int packBookID, int noOfDays, int noOfPeope, double packageCost, Date startDate, Date endDate,
+			Packages pack, Customer customer, RentalTransport rentTransport) {
 		super();
-		this.packageBookingID = packageBookingID;
+		this.packBookID = packBookID;
 		this.noOfDays = noOfDays;
 		this.noOfPeope = noOfPeope;
 		this.packageCost = packageCost;
@@ -50,14 +59,15 @@ public class PackageBooking {
 		this.endDate = endDate;
 		this.pack = pack;
 		this.customer = customer;
+		this.rentTransport = rentTransport;
 	}
 
-	public int getPackageBookingID() {
-		return packageBookingID;
+	public int getPackBookID() {
+		return packBookID;
 	}
 
-	public void setPackageBookingID(int packageBookingID) {
-		this.packageBookingID = packageBookingID;
+	public void setPackBookID(int packBookID) {
+		this.packBookID = packBookID;
 	}
 
 	public int getNoOfDays() {
@@ -116,11 +126,19 @@ public class PackageBooking {
 		this.customer = customer;
 	}
 
+	public RentalTransport getRentTransport() {
+		return rentTransport;
+	}
+
+	public void setRentTransport(RentalTransport rentTransport) {
+		this.rentTransport = rentTransport;
+	}
+
 	@Override
 	public String toString() {
-		return "PackageBooking [packageBookingID=" + packageBookingID + ", noOfDays=" + noOfDays + ", noOfPeope="
-				+ noOfPeope + ", packageCost=" + packageCost + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", pack=" + pack + ", customer=" + customer + "]";
+		return "PackageBooking [packBookID=" + packBookID + ", noOfDays=" + noOfDays + ", noOfPeope=" + noOfPeope
+				+ ", packageCost=" + packageCost + ", startDate=" + startDate + ", endDate=" + endDate + ", pack="
+				+ pack + ", customer=" + customer + ", rentTransport=" + rentTransport + "]";
 	}
 
 }

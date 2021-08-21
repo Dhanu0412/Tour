@@ -28,10 +28,16 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.getAllCustomers();
 	}
 
+//	@Override
+//	public Customer getCustomer(Customer customer) {
+//		
+//		return customerDao.getCustomer(customer);
+//	}
+	
 	@Override
-	public Customer getCustomer(Customer customer) {
+	public Customer getCustomer(String email) {
 		
-		return customerDao.getCustomer(customer);
+		return customerDao.getCustomer(email);
 	}
 
 	@Override

@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "RENTAL_TYPE")
@@ -16,32 +14,29 @@ public class RentalTransport {
 
 	@Id
 	@GeneratedValue
-	private int rentalTransportID;
+	private int rentTransID;
 
 	private String vehicleProvider;
-
-	@OneToOne
-	@JoinColumn(name = "packageID",referencedColumnName = "PACKAGEID")
-	private Packages pack;
+	private double chargesPerDay;
 
 	public RentalTransport() {
 		super();
 		System.out.println("From RentalTransport");
 	}
 
-	public RentalTransport(int rentalTransportID, String vehicleProvider, Packages pack) {
+	public RentalTransport(int rentalTransportID, String vehicleProvider, double chargesPerDay) {
 		super();
-		this.rentalTransportID = rentalTransportID;
+		this.rentTransID = rentalTransportID;
 		this.vehicleProvider = vehicleProvider;
-		this.pack = pack;
+		this.chargesPerDay = chargesPerDay;
 	}
 
 	public int getRentalTransportID() {
-		return rentalTransportID;
+		return rentTransID;
 	}
 
 	public void setRentalTransportID(int rentalTransportID) {
-		this.rentalTransportID = rentalTransportID;
+		this.rentTransID = rentalTransportID;
 	}
 
 	public String getVehicleProvider() {
@@ -51,19 +46,20 @@ public class RentalTransport {
 	public void setVehicleProvider(String vehicleProvider) {
 		this.vehicleProvider = vehicleProvider;
 	}
+	
 
-	public Packages getPack() {
-		return pack;
+	public double getChargesPerDay() {
+		return chargesPerDay;
 	}
 
-	public void setPack(Packages pack) {
-		this.pack = pack;
+	public void setChargesPerDay(double chargesPerDay) {
+		this.chargesPerDay = chargesPerDay;
 	}
 
 	@Override
 	public String toString() {
-		return "RentalTransport [rentalTransportID=" + rentalTransportID + ", vehicleProvider=" + vehicleProvider
-				+ ", pack=" + pack + "]";
+		return "RentalTransport [rentalTransportID=" + rentTransID + ", vehicleProvider=" + vehicleProvider
+				+ ", chargesPerDay=" + chargesPerDay + "]";
 	}
 
 }

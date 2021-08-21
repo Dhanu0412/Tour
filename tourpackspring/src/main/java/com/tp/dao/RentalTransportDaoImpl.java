@@ -10,8 +10,9 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
+import com.tp.entity.FourWheeler;
 import com.tp.entity.RentalTransport;
+import com.tp.entity.TwoWheeler;
 
 @Repository
 public class RentalTransportDaoImpl implements RentalTransportDao {
@@ -24,36 +25,49 @@ public class RentalTransportDaoImpl implements RentalTransportDao {
 		return sessionFactory.getCurrentSession();
 	}
 
+	@Override
+	public void createFourWheeler(FourWheeler fourWheeler) {
+
+		getSession().saveOrUpdate(fourWheeler);
+		System.out.println("FourWheeler has been stored successfully in DB !");
+	}
 	
 	@Override
-	public void createRentalTransport(com.tp.entity.RentalTransport rentalTransport) {
+	public void createTwoWheeler(TwoWheeler twoWheeler) {
 
-		getSession().saveOrUpdate(rentalTransport);
-		System.out.println("RentalTransport has been stored successfully in DB !");
+		getSession().saveOrUpdate(twoWheeler);
+		System.out.println("TwoWheeler has been stored successfully in DB !");
 	}
-
 	
 	@Override
 	public List<RentalTransport> getAllRentalTransport() {
 
-		Query query = getSession().createQuery("from RentalTransport rentalTransport");
+		Query query = getSession().createQuery("from RentalTransport rentalTransport ");
 		List<RentalTransport> rentalTransportlist = query.list();
 		System.out.println(rentalTransportlist);
 		return rentalTransportlist;
 	}
 
 	@Override
-	public List<com.tp.entity.RentalTransport> updateRentalTransport(com.tp.entity.RentalTransport rentalTransport) {
+	public List<RentalTransport> updateFourWheeler(FourWheeler fourWheeler) {
 
-		getSession().saveOrUpdate(rentalTransport);
-		System.out.println("RentalTransport has been updated successfully in DB !");
+		getSession().saveOrUpdate(fourWheeler);
+		System.out.println("FourWheeler has been updated successfully in DB !");
+		return getAllRentalTransport();
+	}
+	
+	@Override
+	public List<RentalTransport> updateTwoWheeler(TwoWheeler twoWheeler) {
+
+		getSession().saveOrUpdate(twoWheeler);
+		System.out.println("TwoWheeler has been updated successfully in DB !");
 		return getAllRentalTransport();
 	}
 
 	@Override
-	public List<com.tp.entity.RentalTransport> deleteRentalTransport(int rtno) {
+	public List<RentalTransport> deleteRentalTransport(int rtno) {
 		  
-		Query query = getSession().createQuery("delete from RentalTransport rentalTransport where rentalTransportID=:rtno");
+		Query query = getSession().createQuery("delete from RentalTransport rentalTransport where rentTransID=:rtno");
 		query.setParameter("rtno", rtno);
 		int noofrows = query.executeUpdate();
 		if(noofrows >0)
@@ -64,9 +78,9 @@ public class RentalTransportDaoImpl implements RentalTransportDao {
 	}
 
 	@Override
-	public com.tp.entity.RentalTransport getRentalTransportById(int rtid) {
+	public RentalTransport getRentalTransportById(int rtid) {
 		Criteria c = getSession().createCriteria(RentalTransport.class);
-		c.add(Restrictions.eq("rentalTransportID", rtid));
+		c.add(Restrictions.eq("rentTransID", rtid));
 		RentalTransport rentalTransport = (RentalTransport)c.uniqueResult();
 		System.out.println(rentalTransport);
 		return rentalTransport; 

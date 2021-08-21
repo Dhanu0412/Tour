@@ -3,22 +3,35 @@ package com.tp.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tp.dao.RentalTransportDao;
+import com.tp.entity.FourWheeler;
 import com.tp.entity.RentalTransport;
+import com.tp.entity.TwoWheeler;
 
+@Service
+@Transactional
 public class RentalTransportServiceImpl implements RentalTransportService{
 	
 	@Autowired
 	RentalTransportDao rentalTransportDao;
 
 	@Override
-	public void createRentalTransport(RentalTransport rentalTransport) {
+	public void createFourWheeler(FourWheeler fourWheeler) {
 
-		rentalTransportDao.createRentalTransport(rentalTransport);
+		rentalTransportDao.createFourWheeler(fourWheeler);
 		
 	}
 
+	@Override
+	public void createTwoWheeler(TwoWheeler twoWheeler) {
+
+		rentalTransportDao.createTwoWheeler(twoWheeler);
+		
+	}
+	
 	@Override
 	public List<RentalTransport> getAllRentalTransport() {
 		
@@ -27,9 +40,15 @@ public class RentalTransportServiceImpl implements RentalTransportService{
 
 	
 	@Override
-	public List<RentalTransport> updateRentalTransport(RentalTransport rentalTransport) {
+	public List<RentalTransport> updateFourWheeler(FourWheeler fourWheeler) {
 
-		return rentalTransportDao.updateRentalTransport(rentalTransport);
+		return rentalTransportDao.updateFourWheeler(fourWheeler);
+	}
+	
+	@Override
+	public List<RentalTransport> updateTwoWheeler(TwoWheeler twoWheeler) {
+
+		return rentalTransportDao.updateTwoWheeler(twoWheeler);
 	}
 
 	@Override

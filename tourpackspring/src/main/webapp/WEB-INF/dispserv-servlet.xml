@@ -72,5 +72,7 @@
 	<bean id="rentalTransport" class="com.tp.entity.RentalTransport"/>
 	<bean id="rentalTransportDao" class="com.tp.dao.RentalTransportDaoImpl"/>
 	<bean id="rentalTransportService" class="com.tp.service.RentalTransportServiceImpl"/>
+	<bean id="twoWheeler" class="com.tp.entity.TwoWheeler"/>
+	<bean id="fourWheeler" class="com.tp.entity.FourWheeler"/>
 			
 </beans>

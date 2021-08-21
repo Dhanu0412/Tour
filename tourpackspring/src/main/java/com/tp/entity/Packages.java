@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Packages {
@@ -24,11 +24,9 @@ public class Packages {
 	private double hotelCostPerDay;
 	private double costPerDay;
 	
-	@OneToOne(mappedBy = "pack", cascade = CascadeType.ALL)
-	private RentalTransport rentalTransport;
-	
-	@OneToMany(targetEntity = PackageBooking.class, mappedBy = "pack", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<PackageBooking> packageBooking;
+	@OneToMany(targetEntity = PackageBooking.class, mappedBy = "pack", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private List<PackageBooking> packBooking;
 
 	public Packages() {
 		super();

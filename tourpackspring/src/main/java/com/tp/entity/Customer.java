@@ -7,14 +7,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -22,6 +22,7 @@ public class Customer {
 
 	@Id
 	@GeneratedValue
+	@PrimaryKeyJoinColumn 
 	private int customerID;
 	
 	@Embedded
@@ -31,8 +32,6 @@ public class Customer {
 	@Column
 	private String password;
 	@Column
-	private String username;
-	@Column
 	private String email;
 	
 	@Temporal(TemporalType.DATE)
@@ -40,25 +39,24 @@ public class Customer {
 	@Column
 	private String phone;
 	
-	@OneToOne
-	@JoinColumn(name = "addressID",referencedColumnName = "ADDRESSID")
+	@Embedded
 	private Address address;
 	
-	@OneToMany(targetEntity = PackageBooking.class, mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<PackageBooking> packageBooking;
+	@OneToMany(targetEntity = PackageBooking.class, mappedBy = "customer", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private List<PackageBooking> packBooking;
 
 	public Customer() {
 		super();
 	}
 
-	public Customer(int customerID, Name customerName, String gender, String password, String username, String email,
+	public Customer(int customerID, Name customerName, String gender, String password, String email,
 			Date dateOfBirth, String phone, Address address) {
 		super();
 		this.customerID = customerID;
 		this.customerName = customerName;
 		this.gender = gender;
 		this.password = password;
-		this.username = username;
 		this.email = email;
 		this.dateOfBirth = dateOfBirth;
 		this.phone = phone;
@@ -97,14 +95,6 @@ public class Customer {
 		this.password = password;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -140,7 +130,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [customerID=" + customerID + ", customerName=" + customerName + ", gender=" + gender
-				+ ", password=" + password + ", username=" + username + ", email=" + email + ", dateOfBirth="
+				+ ", password=" + password + ", email=" + email + ", dateOfBirth="
 				+ dateOfBirth + ", phone=" + phone + ", address=" + address + "]";
 	}
 

@@ -11,7 +11,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.tp.entity.Address;
 import com.tp.entity.Customer;
 
 @Repository
@@ -28,15 +27,8 @@ public class CustomerDaoImpl implements CustomerDao{
 
 	@Override
 	public void createCustomer(Customer customer) {
-		createAddress(customer.getAddress());
 		getSession().saveOrUpdate(customer);
 		System.out.println("Customer has been stored successfully in DB !");
-	}
-
-	@Override
-	public void createAddress(Address address) {
-		getSession().saveOrUpdate(address);
-		System.out.println("Address has been stored successfully in DB !");
 	}
 	
 	@Override
@@ -53,12 +45,20 @@ public class CustomerDaoImpl implements CustomerDao{
 		return cuslist;
 	}
 
+//	@Override
+//	public Customer getCustomer(Customer customer) {
+//		Criteria c = getSession().createCriteria(Customer.class);
+//		c.add(Restrictions.eq("email", customer.getEmail()));
+//		c.add(Restrictions.eq("password", customer.getPassword()));
+//		Customer cus = (Customer)c.uniqueResult();
+//		System.out.println("Customer Retrieved : " + cus);
+//		return cus;
+//	}
+	
 	@Override
-	public Customer getCustomer(Customer customer) {
+	public Customer getCustomer(String email) {
 		Criteria c = getSession().createCriteria(Customer.class);
-		c.add(Restrictions.eq("username", customer.getUsername()));
-		c.add(Restrictions.eq("email", customer.getEmail()));
-		c.add(Restrictions.eq("password", customer.getPassword()));
+		c.add(Restrictions.eq("email", email));
 		Customer cus = (Customer)c.uniqueResult();
 		System.out.println("Customer Retrieved : " + cus);
 		return cus;

@@ -2,12 +2,13 @@ package com.tp.entity;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @DiscriminatorValue("TwoWheeler")
+@PrimaryKeyJoinColumn(name="rentTransID") 
 public class TwoWheeler extends RentalTransport {
 
-	private double chargesPerDay;
 	private String vehicleType;//bike or scooter
 	
 	public TwoWheeler() {
@@ -15,18 +16,9 @@ public class TwoWheeler extends RentalTransport {
 		System.out.println("From TwoWheeler");
 	}
 	
-	public TwoWheeler(double chargesPerDay, String vehicleType) {
+	public TwoWheeler(String vehicleType) {
 		super();
-		this.chargesPerDay = chargesPerDay;
 		this.vehicleType = vehicleType;
-	}
-
-	public double getChargesPerDay() {
-		return chargesPerDay;
-	}
-
-	public void setChargesPerDay(double chargesPerDay) {
-		this.chargesPerDay = chargesPerDay;
 	}
 
 	public String getVehicleType() {
@@ -39,7 +31,7 @@ public class TwoWheeler extends RentalTransport {
 
 	@Override
 	public String toString() {
-		return "TwoWheeler [chargesPerDay=" + chargesPerDay + ", vehicleType=" + vehicleType + "]";
+		return "TwoWheeler [vehicleType=" + vehicleType + "]";
 	}
 	
 }
