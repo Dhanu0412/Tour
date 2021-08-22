@@ -2,7 +2,6 @@ package com.tp.dao;
 
 import java.util.List;
 
-import com.tp.entity.Address;
 import com.tp.entity.Customer;
 
 public interface CustomerDao {

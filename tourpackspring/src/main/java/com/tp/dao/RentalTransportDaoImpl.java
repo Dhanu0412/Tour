@@ -41,6 +41,7 @@ public class RentalTransportDaoImpl implements RentalTransportDao {
 		System.out.println("TwoWheeler has been stored successfully in DB !");
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<RentalTransport> getAllRentalTransport() {
 

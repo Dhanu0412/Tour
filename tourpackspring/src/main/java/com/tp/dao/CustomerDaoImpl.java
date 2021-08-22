@@ -33,6 +33,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		System.out.println("Customer has been stored successfully in DB !");
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Customer> getAllCustomers() {
 		List<Customer> cuslist = new ArrayList<Customer>();

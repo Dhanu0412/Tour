@@ -12,5 +12,7 @@ public interface PackageDao {
 	public List<Packages> deletePackage(int pno);
 	
 	public Packages getPackageById(int pid);
+	public List<Packages> SortPackagesByCostPerDay(double min,double max);
+	public List<Packages> SortPackagesByHotelCostPerDay(double min,double max);
 
 }

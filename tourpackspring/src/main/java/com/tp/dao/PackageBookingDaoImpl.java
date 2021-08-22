@@ -34,6 +34,7 @@ public class PackageBookingDaoImpl implements PackageBookingDao {
 		System.out.println("PackageBooking has been stored successfully in DB !");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<PackageBooking> getAllPackageBookings() {
 
@@ -76,6 +77,7 @@ public class PackageBookingDaoImpl implements PackageBookingDao {
 		return packBooking;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<PackageBooking> getPackageBookingsByCId(int cid) {
 

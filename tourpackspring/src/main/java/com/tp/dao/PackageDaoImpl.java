@@ -32,6 +32,7 @@ public class PackageDaoImpl implements PackageDao{
 		System.out.println("Package has been stored successfully in DB !");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Packages> getAllPackages() {
 		
@@ -72,4 +73,26 @@ public class PackageDaoImpl implements PackageDao{
 		return pack; 
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Packages> SortPackagesByCostPerDay(double min, double max) {
+		Query query = getSession().createQuery("from Packages pack where costperday between :min and :max");
+		query.setParameter("min", min);
+		query.setParameter("max", max);
+		List<Packages> packlist = query.list();
+		System.out.println(packlist);
+		return packlist;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Packages> SortPackagesByHotelCostPerDay(double min, double max) {
+		Query query = getSession().createQuery("from Packages pack where hotelCostPerDay between :min and :max");
+		query.setParameter("min", min);
+		query.setParameter("max", max);
+		List<Packages> packlist = query.list();
+		System.out.println(packlist);
+		return packlist;
+	}
+	
 }

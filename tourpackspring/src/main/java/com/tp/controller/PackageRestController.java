@@ -85,4 +85,30 @@ public class PackageRestController {
 		return new ResponseEntity<Packages>(pack,HttpStatus.OK);		
 	}
 	
+	@GetMapping("/sortPackCost/{min}/{max}")
+	public ResponseEntity<List<Packages>> sortPackageByCost(@PathVariable("min") double min, @PathVariable("max") double max) {
+		
+		List<Packages> packlist = packageService.SortPackagesByCostPerDay(min, max);
+		System.out.println("From Rest update cus : " + packlist);
+		
+		if(packlist.isEmpty()) {
+			
+			return new ResponseEntity<List<Packages>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<Packages>>(packlist,HttpStatus.OK);		
+	}
+	
+	@GetMapping("/sortPackHotelCost/{min}/{max}")
+	public ResponseEntity<List<Packages>> sortPackageByHotelCost(@PathVariable("min") double min, @PathVariable("max") double max) {
+		
+		List<Packages> packlist = packageService.SortPackagesByHotelCostPerDay(min, max);
+		System.out.println("From Rest update cus : " + packlist);
+		
+		if(packlist.isEmpty()) {
+			
+			return new ResponseEntity<List<Packages>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<Packages>>(packlist,HttpStatus.OK);		
+	}
+	
 }

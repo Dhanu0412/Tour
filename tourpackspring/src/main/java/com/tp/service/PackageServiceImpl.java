@@ -46,5 +46,17 @@ public class PackageServiceImpl implements PackageService{
 		return packageDao.getPackageById(pid);
 	}
 
+	@Override
+	public List<Packages> SortPackagesByCostPerDay(double min, double max) {
+		
+		return packageDao.SortPackagesByCostPerDay(min, max);
+	}
+
+	@Override
+	public List<Packages> SortPackagesByHotelCostPerDay(double min, double max) {
+		
+		return packageDao.SortPackagesByHotelCostPerDay(min, max);
+	}
+
 	
 }

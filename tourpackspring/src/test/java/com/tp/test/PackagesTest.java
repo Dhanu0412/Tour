@@ -34,4 +34,18 @@ public class PackagesTest {
 		assertEquals(packageDao.getPackageById(id).getPackageName(),"GoGoaGone");
 	}
 	
+	@Test
+	public void testSortPackageByCostPerDay() {
+		
+		double min=500.00, max=1000.00;
+		assertTrue((packageDao.SortPackagesByCostPerDay(min, max)).size()<1);
+	}
+	
+	@Test
+	public void testSortPackageByHotelCostPerDay() {
+		
+		double min=500.00, max=1000.00;
+		assertTrue((packageDao.SortPackagesByHotelCostPerDay(min, max)).size()>=2);
+	}
+	
 }
