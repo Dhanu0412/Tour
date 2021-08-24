@@ -10,7 +10,7 @@ import { PackserviceService } from '../packservice.service';
 export class PackcreateComponent implements OnInit {
 
   @Input()
-  packageDetails = { packagename: '', location: '', hotel: '', hotelcostperday: 0  , costperday: 0 , packageimage: ''};
+  packageDetails = { packagename: '', location: '', hotel: '', hotelcostperday: 0  , costperday: 0 , iternary: '', packageimage: ''};
 
   constructor(public restApi: PackserviceService, public router: Router) { }
 

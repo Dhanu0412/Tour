@@ -1,23 +1,31 @@
 <div>
-  <div class="form-row">
+  
     <div class="form-group">
       <label for="lblpname">Package Name </label>
-      <input type="text" class="form-control" id="lblpname" name="packageName" [(ngModel)]="packageData.packageName" />
+      <input type="text" class="form-control" id="lblpname" name="packageName" 
+      placeholder="Enter Package Name" [(ngModel)]="packageData.packageName" />
     </div>
     {{ packageData.packageName }}
 
 
     <div class="form-group">
       <label for="lbllocation ">Location </label>
-      <input type="text" class="form-control" id="lbllocation " name="location" [(ngModel)]="packageData.location" />
+      <input type="text" class="form-control" id="lbllocation " name="location" 
+      placeholder="Enter Location" [(ngModel)]="packageData.location" />
     </div>
     {{ packageData.location }}
-
-
-    <div>
-      <label for="lblhotel">Hotel </label> <br />
+        
+        <div class="form-group">
+          <label for="lblitenary">Iternary </label> <br />
+          <input type="text" class="form-control" id="lbliternary" name="iternary"
+          placeholder="Enter Iternary" [(ngModel)]="packageData.iternary" />
+        </div>
+        {{ packageData.iternary }}
+      
       <div class="form-group">
-        <input type="text" class="form-control" id="lblhotel" name="hotelName" [(ngModel)]="packageData.hotelName" />
+        <label for="lblhotel">Hotel </label> <br />
+        <input type="text" class="form-control" id="lblhotel" name="hotelName" 
+        placeholder="Enter Hotel Name"  [(ngModel)]="packageData.hotelName" />
       </div>
       {{ packageData.hotelName }}
 
@@ -35,9 +43,16 @@
           [(ngModel)]="packageData.costPerDay" />
       </div>
       {{ packageData.costPerDay }}
+      
 
-
-    </div>
+      <div class="form-group">
+        <label for="lblimage">Package Image</label> <br />
+          <input type="text" class="form-control" id="lblimage" name="packageImage" 
+          placeholder="Enter Package Image Location" [(ngModel)]="packageData.packageImage" />
+        </div>
+        {{ packageData.packageImage }}
+     </div>
+     
     <div class="form-group">
       <button type="submit" (click)="updatePackage()" class="btn btn-primary">
         Update Package
