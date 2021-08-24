@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Customer } from '../Customer';
+import { CustomerserviceService } from '../customerservice.service';
 
 @Component({
   selector: 'sign-up',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  customerDetails: any = {
+    customerName: {
+      fname: '',
+      lname: ''
+    },
+    gender: '',
+    password: '',
+    email: '',
+    dateOfBirth: 0,
+    phone: 0,
+    address: {
+      doorno: 0,
+      street: '',
+      city: '',
+      pincode: 0
+    }
+  };
+
+  constructor(public restApi: CustomerserviceService, public router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  addCustomer() {
+    this.restApi.createCustomer(this.customerDetails).subscribe((data: {}) => { this.router.navigate(['/login']) });
   }
 
 }

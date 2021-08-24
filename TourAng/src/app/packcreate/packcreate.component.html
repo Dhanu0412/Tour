@@ -1,0 +1,67 @@
+<div class='dashboard'>
+  <navbar></navbar>
+  <div class='dashboard-app'>
+    <div class='dashboard-content'>
+      <div class="container" id="container">
+        <div class="form-group">
+          <label for="lblpname">Package Name </label>
+          <input type="text" class="form-control" id="lblpname" name="packageName" placeholder="Enter Package Name"
+            [(ngModel)]="packageDetails.packageName" />
+        </div>
+        {{ packageDetails.packageName }}
+
+
+        <div class="form-group">
+          <label for="lbllocation ">Location </label>
+          <input type="text" class="form-control" id="lbllocation " name="location" placeholder="Enter Location"
+            [(ngModel)]="packageDetails.location" />
+        </div>
+        {{ packageDetails.location }}
+
+        <div class="form-group">
+          <label for="lblitenary">Iternary </label> <br />
+          <input type="text" class="form-control" id="lbliternary" name="itenary" placeholder="Enter Iternary"
+            [(ngModel)]="packageDetails.itenary" />
+        </div>
+        {{ packageDetails.itenary }}
+
+        <div class="form-group">
+          <label for="lblhotel">Hotel </label> <br />
+          <input type="text" class="form-control" id="lblhotel" name="hotelName" placeholder="Enter Hotel Name"
+            [(ngModel)]="packageDetails.hotelName" />
+        </div>
+        {{ packageDetails.hotelName }}
+
+        <div class="form-group">
+          <label for="lblhcost">Hotel Cost Per Day</label>
+          <input type="number" class="form-control" id="lblhcost" name="hotelCostPerDay"
+            placeholder="Enter Hotel Cost Per Day" [(ngModel)]="packageDetails.hotelCostPerDay" />
+        </div>
+        {{ packageDetails.hotelCostPerDay }}
+
+
+        <div class="form-group">
+          <label for="lblhcost">Cost Per Day</label>
+          <input type="number" class="form-control" id="lblcost" name="costPerDay" placeholder="Enter Cost Per Day"
+            [(ngModel)]="packageDetails.costPerDay" />
+        </div>
+        {{ packageDetails.costPerDay }}
+
+
+        <div class="form-group">
+          <label for="lblimage">Package Image</label> <br />
+          <input type="text" class="form-control" id="lblimage" name="packageImage"
+            placeholder="Enter Package Image Location" [(ngModel)]="packageDetails.packageImage" />
+        </div>
+        {{ packageDetails.packageImage }}
+
+
+        <div class="form-group">
+          <button type="submit" (click)="addPackage()" class="btn btn-primary">
+            Add Package
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

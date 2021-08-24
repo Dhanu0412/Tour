@@ -1,0 +1,99 @@
+<div class='dashboard'>
+  <navbar></navbar>
+  <div class='dashboard-app'>
+    <div class='dashboard-content'>
+      <p>customer-list works!</p>
+      <!-- <table class="table table-dark">
+    <thead>
+      <tr>
+          <th *ngFor = 'let column of columns'>{{column}}</th>
+      </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor= 'let customer of customers'>
+          <td>{{customer.customerID}}</td>
+          <td>{{customer.customerName.fname}}</td>
+          <td>{{customer.customerName.lname}}</td>
+          <td>{{customer.gender}}</td>
+          <td>{{customer.email}}</td>
+          <td>{{customer.phone}}</td>
+          <td>{{customer.dateOfBirth}}</td>
+          <td>{{customer.address.doorno}}</td>
+          <td>{{customer.address.street}}</td>
+          <td>{{customer.address.city}}</td>
+          <td>{{customer.address.pincode}}</td>
+          <td>
+            <button type="button"  class="btn btn-primary btn-sm">edit</button>
+          </td>
+          <td>
+            <button type="button" (click) = 'deleteCustomer(customer.customerID)' class="btn btn-primary btn-sm">delete</button>
+          </td>
+          <td>
+            <button type="button"  class="btn btn-primary btn-sm">Bookings</button>
+          </td>
+        </tr>
+    </tbody>
+  </table> -->
+
+
+      <div class="container mt-5 px-2">
+        <div class="mb-2 d-flex justify-content-between align-items-center">
+          <div class="position-relative"> <span class="position-absolute search"><i class="fa fa-search"></i></span>
+            <input class="form-control w-100" placeholder="Search by order#, name...">
+          </div>
+          <div class="px-2"> <span>Filters <i class="fa fa-angle-down"></i></span> <i class="fa fa-ellipsis-h ms-3"></i>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-responsive table-borderless">
+            <thead>
+              <tr class="bg-light">
+                <th scope="col" class="text-center">Id</th>
+                <th scope="col" class="text-center">First name</th>
+                <th scope="col" class="text-center">Last name</th>
+                <th scope="col" class="text-center">Gender</th>
+                <th scope="col" class="text-center">Email</th>
+                <th scope="col" class="text-center">Phone</th>
+                <th scope="col" class="text-center">D.O.B</th>
+                <th scope="col" class="text-center">DoorNo</th>
+                <th scope="col" class="text-center">Street</th>
+                <th scope="col" class="text-center">city</th>
+                <th scope="col" class="text-center">PIN</th>
+                <th scope="col" class="text-center"><span>Actions</span></th>
+                <th scope="col" class="text-center"><span>Bookings</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let customer of customers'>
+                <!-- <th scope="row"><input class="form-check-input" type="checkbox"></th> -->
+
+                <td>{{customer.customerID}}</td>
+                <td class="text-center">{{customer.customerName.fname}}</td>
+                <td class="text-center">{{customer.customerName.lname}}</td>
+                <td class="text-center">{{customer.gender}}</td>
+                <td class="text-center">{{customer.email}}</td>
+                <td class="text-center">{{customer.phone}}</td>
+                <td class="text-center">{{customer.dateOfBirth}}</td>
+                <td class="text-center">{{customer.address.doorno}}</td>
+                <td class="text-center">{{customer.address.street}}</td>
+                <td class="text-center">{{customer.address.city}}</td>
+                <td class="text-center">{{customer.address.pincode}}</td>
+
+                <td class="text-center">
+                  <button type="button" (click)='deleteCustomer(customer.customerID)'
+                    class='btn btn-primary btn-sm far fa-trash-alt'></button>
+                </td>
+                <td class="text-center">
+                  <button type="button" routerLink="/customer-bookings/{{customer.customerID}}"
+                    routerLinkActive="active" class='btn btn-primary btn-sm fa fa-book'></button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerserviceService } from './customerservice.service';
 
 @Component({
@@ -9,15 +9,18 @@ import { CustomerserviceService } from './customerservice.service';
 })
 
 export class AppComponent {
-  [x: string]: any;
-  title = 'TourAng'
-  response:any
-constructor(http: HttpClientModule){
-
-}
-
-  ngOnInit(){
-    let obs = this.http.get('https://api.github.com/users/bharathb99');
-    obs.subscribe((response: any) => console.log('Got the response'));
+  title = 'TourAng';
+  public cid: any = this.aroute.snapshot.params['id'];
+  public user = false;
+  constructor(public restApi: CustomerserviceService,
+    public aroute: ActivatedRoute,
+    public router: Router) { }
+  ngOnInit(): void {
+    if (this.cid) {
+      this.user = true;
+    }
+    else {
+      this.user = false;
+    }
   }
 }

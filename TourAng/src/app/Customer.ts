@@ -6,12 +6,10 @@ export interface Customer {
     },
     gender: string,
     password: string,
-    username: string,
     email: string,
     dateOfBirth: number,
     phone: number,
     address: {
-        addressID: number,
         doorno: number,
         street: string,
         city: string,
