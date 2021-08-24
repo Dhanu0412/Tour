@@ -16,7 +16,6 @@ public interface RentalTransportDao {
 	public List<RentalTransport> deleteRentalTransport(int rtno);
 	
 	public RentalTransport getRentalTransportById(int rtid);
-	
-
+	public List<RentalTransport> SortRentalTransportByCharges(double min,double max);
 
 }

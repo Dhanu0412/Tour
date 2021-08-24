@@ -94,5 +94,15 @@ public class PackageDaoImpl implements PackageDao{
 		System.out.println(packlist);
 		return packlist;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Packages> SearchPackagesByLocation(String loc) {
+		Query query = getSession().createQuery("from Packages pack where location=:loc");
+		query.setParameter("loc", loc);
+		List<Packages> packlist = query.list();
+		System.out.println(packlist);
+		return packlist;
+	}
 	
 }

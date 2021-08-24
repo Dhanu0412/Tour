@@ -58,5 +58,11 @@ public class PackageServiceImpl implements PackageService{
 		return packageDao.SortPackagesByHotelCostPerDay(min, max);
 	}
 
+	@Override
+	public List<Packages> SearchPackagesByLocation(String location) {
+		
+		return packageDao.SearchPackagesByLocation(location);
+	}
+
 	
 }

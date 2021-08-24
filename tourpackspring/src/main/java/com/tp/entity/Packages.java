@@ -18,6 +18,7 @@ public class Packages {
 	private int packageID;
 	
 	private String packageName;
+	private String packageImage;
 	private String itenary;
 	private String location;
 	private String hotelName;
@@ -32,11 +33,12 @@ public class Packages {
 		super();
 	}
 
-	public Packages(int packageID, String packageName, String itenary, String location, String hotelName,
+	public Packages(int packageID, String packageName, String packageImage, String itenary, String location, String hotelName,
 			double hotelCostPerDay, double costPerDay) {
 		super();
 		this.packageID = packageID;
 		this.packageName = packageName;
+		this.packageImage = packageImage;
 		this.itenary = itenary;
 		this.location = location;
 		this.hotelName = hotelName;
@@ -58,6 +60,14 @@ public class Packages {
 
 	public void setPackageName(String packageName) {
 		this.packageName = packageName;
+	}
+
+	public String getPackageImage() {
+		return packageImage;
+	}
+
+	public void setPackageImage(String packageImage) {
+		this.packageImage = packageImage;
 	}
 
 	public String getItenary() {
@@ -102,9 +112,9 @@ public class Packages {
 
 	@Override
 	public String toString() {
-		return "Packages [packageID=" + packageID + ", packageName=" + packageName + ", itenary=" + itenary
-				+ ", location=" + location + ", hotelName=" + hotelName + ", hotelCostPerDay=" + hotelCostPerDay
-				+ ", costPerDay=" + costPerDay + "]";
+		return "Packages [packageID=" + packageID + ", packageName=" + packageName + ", packageImage=" + packageImage
+				+ ", itenary=" + itenary + ", location=" + location + ", hotelName=" + hotelName + ", hotelCostPerDay="
+				+ hotelCostPerDay + ", costPerDay=" + costPerDay + "]";
 	}
-	
+
 }

@@ -63,4 +63,10 @@ public class RentalTransportServiceImpl implements RentalTransportService{
 		return rentalTransportDao.getRentalTransportById(rtid);
 	}
 
+	@Override
+	public List<RentalTransport> SortRentalTransportByCharges(double min, double max) {
+		
+		return rentalTransportDao.SortRentalTransportByCharges(min, max);
+	}
+
 }

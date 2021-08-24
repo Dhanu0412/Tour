@@ -90,6 +90,17 @@ public class RentalTransportDaoImpl implements RentalTransportDao {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RentalTransport> SortRentalTransportByCharges(double min, double max) {
+		Query query = getSession().createQuery("from RentalTransport rentTrans where chargesperday between :min and :max");
+		query.setParameter("min", min);
+		query.setParameter("max", max);
+		List<RentalTransport> rentalTransportlist = query.list();
+		System.out.println(rentalTransportlist);
+		return rentalTransportlist;
+	}
+
 	
 
 }
