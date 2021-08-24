@@ -8,7 +8,8 @@ import { PackserviceService } from '../packservice.service';
   styleUrls: ['./packadmin.component.css']
 })
 export class PackadminComponent implements OnInit {
-  packageData: any = {};
+
+  packageData: any = [];
   restApi: any;
 
   constructor(

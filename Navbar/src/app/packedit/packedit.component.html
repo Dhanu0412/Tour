@@ -1,77 +1,46 @@
-
 <div>
   <div class="form-row">
     <div class="form-group">
-      <label for="lblfname">Package Name </label>
-      <input
-        type="text"
-        class="form-control"
-        id="lblfname"
-        name="packageName"
-        [(ngModel)]="packageData.packagename"
-      />
+      <label for="lblpname">Package Name </label>
+      <input type="text" class="form-control" id="lblpname" name="packageName" [(ngModel)]="packageData.packageName" />
     </div>
-    {{ packageData.packagename }}
+    {{ packageData.packageName }}
 
 
     <div class="form-group">
-      <label for="lbllname">Location </label>
-      <input
-        type="text"
-        class="form-control"
-        id="lbllname"
-        name="lname"
-        [(ngModel)]="packageData.location"
-      />
+      <label for="lbllocation ">Location </label>
+      <input type="text" class="form-control" id="lbllocation " name="location" [(ngModel)]="packageData.location" />
     </div>
     {{ packageData.location }}
 
 
     <div>
-      <label for="lblgender">Hotel </label> <br />
+      <label for="lblhotel">Hotel </label> <br />
       <div class="form-group">
-        <input
-        type="text"
-        class="form-control"
-        id="lbllname"
-        name="lname"
-        [(ngModel)]="packageData.hotelname"
-      />
-    </div>
-    {{ packageData.hotelname }}
-    
-    <div class="form-group">
-      <label for="lblhcost">Hotel Cost Per Day</label>
-      <input
-        type="number"
-        class="form-control"
-        id="lblhcost"
-        name="hotelCostPerDay"
-        placeholder="Enter Hotel Cost Per Day"
-        [(ngModel)]="packageData.hotelCostPerDay"
-      />
-    </div>
-    {{ packageData.hotelCostPerDay }}
+        <input type="text" class="form-control" id="lblhotel" name="hotelName" [(ngModel)]="packageData.hotelName" />
+      </div>
+      {{ packageData.hotelName }}
+
+      <div class="form-group">
+        <label for="lblhcost">Hotel Cost Per Day</label>
+        <input type="number" class="form-control" id="lblhcost" name="hotelCostPerDay"
+          placeholder="Enter Hotel Cost Per Day" [(ngModel)]="packageData.hotelCostPerDay" />
+      </div>
+      {{ packageData.hotelCostPerDay }}
 
 
-    <div class="form-group">
+      <div class="form-group">
         <label for="lblhcost">Cost Per Day</label>
-        <input
-          type="number"
-          class="form-control"
-          id="lblcost"
-          name="costPerDay"
-          placeholder="Enter Cost Per Day"
-          [(ngModel)]="packageData.costPerDay"
-        />
+        <input type="number" class="form-control" id="lblcost" name="costPerDay" placeholder="Enter Cost Per Day"
+          [(ngModel)]="packageData.costPerDay" />
       </div>
       {{ packageData.costPerDay }}
-  
 
-</div>
-  <div class="form-group">
-    <button type="submit" (click)="updatePackage()" class="btn btn-primary">
-      Update Package
-    </button>
+
+    </div>
+    <div class="form-group">
+      <button type="submit" (click)="updatePackage()" class="btn btn-primary">
+        Update Package
+      </button>
+    </div>
   </div>
-</div>

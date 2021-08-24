@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PackserviceService } from '../packservice.service';
 
@@ -8,24 +8,29 @@ import { PackserviceService } from '../packservice.service';
   styleUrls: ['./packedit.component.css']
 })
 export class PackeditComponent implements OnInit {
-  packageData : any ={};
-  packageid = this.aroute.snapshot.params['packageid'];
-  constructor( 
+
+  @Input()
+  packageData = {};
+
+  packageid = this.aroute.snapshot.params['pid'];
+
+  constructor(
     public router: Router,
     public aroute: ActivatedRoute,
     public restApi: PackserviceService) { }
 
-    ngOnInit(): void {
-      this.restApi
-        .getAPackage(this.packageid)
-        .subscribe((data) => (this.packageData = data));
-    }
-  
-    updateEmployee() {
-      if (window.confirm('Are you sure , you want to update?')) {
-        this.restApi.updatePackage(this.packageData).subscribe((data: {}) => {
-          this.router.navigate(['/packlist']);
-        });
-      }
+  ngOnInit(): void {
+    this.restApi
+      .getAPackage(this.packageid)
+      .subscribe((data) => (this.packageData = data));
+  }
 
+  updatePackage() {
+    if (window.confirm('Are you sure , you want to update?')) {
+      this.restApi.updatePackage(this.packageData).subscribe((data: {}) => {
+        this.router.navigate(['/packlist']);
+      });
+    }
+
+  }
 }

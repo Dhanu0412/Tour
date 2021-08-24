@@ -1,10 +1,10 @@
 export interface Package {
-    packageid: number;
-    packagename: string;
-    packageimage: string;
-    location: string;
-    hotelname: string;
-    hotelcostperday: number;
-    costperday: number;
-  }
-  
+  packageID: number;
+  packageName: string;
+  packageImage: string;
+  iternary: string;
+  location: string;
+  hotelName: string;
+  hotelCostPerDay: number;
+  costPerDay: number;
+}
