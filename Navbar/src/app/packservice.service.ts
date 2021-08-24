@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Package } from './Package';
+import { Packages } from './Packages';
 import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
@@ -17,21 +17,21 @@ export class PackserviceService {
     }),
   };
 
-  getPackages(): Observable<Package[]>{
-      return this.http
-      .get<Package[]>(this.resturl + '/allPack')
+  getPackages(): Observable<Packages[]> {
+    return this.http
+      .get<Packages[]>(this.resturl + '/allPack')
       .pipe(retry(1), catchError(this.handleError))
   }
 
-  getAPackage(packageID: any): Observable<Package> {
+  getAPackage(packageID: any): Observable<Packages> {
     return this.http
-      .get<Package>(this.resturl + '/getPack/' + packageID)
+      .get<Packages>(this.resturl + '/getPack/' + packageID)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  createPackage(packageData: any): Observable<Package> {
+  createPackage(packageData: any): Observable<Packages> {
     return this.http
-      .post<Package>(
+      .post<Packages>(
         this.resturl + '/createPack',
         JSON.stringify(packageData),
         this.httpOptions
@@ -39,18 +39,18 @@ export class PackserviceService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  updatePackage(packageData: any): Observable<Package> {
+  updatePackage(packageData: any): Observable<Packages> {
     return this.http
-      .put<Package>(
+      .put<Packages>(
         this.resturl + '/updatePack',
         JSON.stringify(packageData),
         this.httpOptions
       )
       .pipe(retry(1), catchError(this.handleError));
   }
-  deletePackage(packageID: any): Observable<Package> {
+  deletePackage(packageID: any): Observable<Packages> {
     return this.http
-      .delete<Package>(this.resturl + '/deletePack/' + packageID, this.httpOptions)
+      .delete<Packages>(this.resturl + '/deletePack/' + packageID, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
 

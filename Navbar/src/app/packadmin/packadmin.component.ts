@@ -10,12 +10,11 @@ import { PackserviceService } from '../packservice.service';
 export class PackadminComponent implements OnInit {
 
   packageData: any = [];
-  restApi: any;
 
   constructor(
     public router: Router,
     public aroute: ActivatedRoute,
-    publicrestApi: PackserviceService
+    public restApi: PackserviceService
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +28,7 @@ export class PackadminComponent implements OnInit {
   }
 
   deletePackage(id: any) {
-    return this.restApi.deleteEmployee(id).subscribe((data: any) => {
+    return this.restApi.deletePackage(id).subscribe((data: any) => {
       this.loadPackages();
     });
   }
