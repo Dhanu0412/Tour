@@ -1,5 +1,8 @@
 package com.tp.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -16,7 +19,7 @@ import com.tp.entity.PackageBooking;
 @Repository
 @Transactional
 public class PackageBookingDaoImpl implements PackageBookingDao {
-
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -26,10 +29,31 @@ public class PackageBookingDaoImpl implements PackageBookingDao {
 
 	@Override
 	public void createPackageBooking(PackageBooking packBooking) {
-
-		packBooking.setPackageCost(((packBooking.getPack().getCostPerDay() + packBooking.getPack().getHotelCostPerDay())
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		
+		Date DiscountStartDate = new Date();
+		try {
+			DiscountStartDate = formatter.parse("25-08-2021");
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		Date DiscountEndDate = new Date();
+		try {
+			DiscountEndDate = formatter.parse("27-08-2021");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		double discount = 0.10;
+		if(((packBooking.getBookingDate()).after(DiscountStartDate))&&((packBooking.getBookingDate()).before(DiscountEndDate))) {
+		packBooking.setPackageCost((((packBooking.getPack().getCostPerDay() + packBooking.getPack().getHotelCostPerDay())
 				* packBooking.getNoOfPeope() + packBooking.getRentTransport().getChargesPerDay())
-				* packBooking.getNoOfDays());
+				* packBooking.getNoOfDays())*(1-discount));
+		}
+		else {
+			packBooking.setPackageCost(((packBooking.getPack().getCostPerDay() + packBooking.getPack().getHotelCostPerDay())
+					* packBooking.getNoOfPeope() + packBooking.getRentTransport().getChargesPerDay())
+					* packBooking.getNoOfDays());
+		}
 		getSession().saveOrUpdate(packBooking);
 		System.out.println("PackageBooking has been stored successfully in DB !");
 	}

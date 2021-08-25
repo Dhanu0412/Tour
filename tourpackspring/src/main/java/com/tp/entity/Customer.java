@@ -32,11 +32,11 @@ public class Customer {
 	private String gender;
 	@Column
 	private String password;
-	@Column
+	@Column(unique=true)
 	private String email;
 	
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "DD-MM-YYYY")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date dateOfBirth;
 	@Column
 	private String phone;
