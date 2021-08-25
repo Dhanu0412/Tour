@@ -1,0 +1,61 @@
+<div class='dashboard'>
+    <navbar></navbar>
+    <div class='dashboard-app'>
+        <div class='dashboard-content'>
+            <p>customer-bookings works!</p>
+            <div>
+                <h6>Customer Details:
+                    {{customer.customerID}}&nbsp;{{customer.customerName.fname}}&nbsp;{{customer.customerName.lname}}
+                </h6>
+            </div>
+            <div class="container mt-5 px-2">
+                <div class="mb-2 d-flex justify-content-between align-items-center">
+                    <div class="position-relative"> <span class="position-absolute search"><i
+                                class="fa fa-search"></i></span> <input class="form-control w-100"
+                            placeholder="Search by order#, name..."> </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-responsive table-borderless">
+                        <thead>
+                            <tr class="bg-light">
+                                <!-- <th scope="col" class = "text-center" width="5%"></th> -->
+                                <th scope="col" class="text-center">BookingID</th>
+                                <th scope="col" class="text-center">PackageName</th>
+                                <th scope="col" class="text-center">Days</th>
+                                <th scope="col" class="text-center">People</th>
+                                <th scope="col" class="text-center">StartDate</th>
+                                <th scope="col" class="text-center">EndDate</th>
+                                <th scope="col" class="text-center">TransportID</th>
+                                <th scope="col" class="text-center">VehicleProvider</th>
+                                <th scope="col" class="text-center">Charges(v)</th>
+                                <th scope="col" class="text-center">Seats</th>
+                                <th scope="col" class="text-center">Type(v)</th>
+                                <th scope="col" class="text-center">TotalCost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let booking of bookings">
+                                <!-- <th scope="row"><input class="form-check-input" type="checkbox"></th> -->
+                                <td class="text-center">{{booking.packBookID}}</td>
+                                <td class="text-center">{{booking.pack.packageName}}</td>
+                                <td class="text-center">{{booking.noOfDays}}</td>
+                                <td class="text-center">{{booking.noOfPeope}}</td>
+                                <td class="text-center">{{booking.startDate}}</td>
+                                <td class="text-center">{{booking.endDate}}</td>
+                                <td class="text-center">{{booking.rentTransport.rentalTransportID}}</td>
+                                <td class="text-center">{{booking.rentTransport.vehicleProvider}}</td>
+                                <td class="text-center">{{booking.rentTransport.chargesPerDay}}</td>
+                                <td class="text-center">{{booking.rentTransport.noOfSeats}}</td>
+                                <td class="text-center">{{booking.rentTransport.vehicleType}}</td>
+                                <td class="text-center">{{booking.packageCost}}</td>
+                                <!-- <td><button type="button" (click) = 'deleteCustomer(customer.customerID)' class='btn btn-primary btn-sm far fa-trash-alt' ></button>
+                    </td> -->
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

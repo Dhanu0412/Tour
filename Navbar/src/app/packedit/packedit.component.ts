@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Packages } from '../Packages';
 import { PackserviceService } from '../packservice.service';
 
 @Component({
@@ -10,7 +11,16 @@ import { PackserviceService } from '../packservice.service';
 export class PackeditComponent implements OnInit {
 
   @Input()
-  packageData = {};
+  packageData: Packages = {
+    packageID: 0,
+    packageName: '',
+    packageImage: '',
+    itenary: '',
+    location: '',
+    hotelName: '',
+    hotelCostPerDay: 0,
+    costPerDay: 0
+  };
 
   packageid = this.aroute.snapshot.params['pid'];
 
