@@ -7,11 +7,13 @@ import { CustomerserviceService } from './customerservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PackagebookingserviceService } from './packagebookingservice.service';
+import { PackserviceService } from './packservice.service';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
+    routingComponents
   ],
   imports: [
     BrowserModule,
@@ -19,7 +21,7 @@ import { PackagebookingserviceService } from './packagebookingservice.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [CustomerserviceService, PackagebookingserviceService],
+  providers: [CustomerserviceService, PackagebookingserviceService, PackserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

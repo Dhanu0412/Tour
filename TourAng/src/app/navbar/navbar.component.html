@@ -1,70 +1,24 @@
 <div class="dashboard-nav">
+    <br>
     <header>
         <div class="brand-logo">
             <img src="assets/palm-tree.png" alt="palm" width="100" height="100" />
         </div>
     </header>
-    <div *ngIf="admin; then thenBlock; else elseBlock;"></div>
-    <ng-template #thenBlock>
-        <nav class="dashboard-nav-list">
-            <a routerLink="/admin" routerLinkActive="active" class="dashboard-nav-item">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-            <a routerLink="/customer-list" routerLinkActive="active" class="dashboard-nav-item active">
-                <i class="fas fa-tachometer-alt"></i>
-                customer
-            </a>
-            <a routerLink="/packadmin" routerLinkActive="active" class="dashboard-nav-item"><i
-                    class="fas fa-file-upload"></i>
-                Packages
-            </a>
-            <div class="nav-item-divider"></div>
-            <a routerLink="/home" routerLinkActive="active" class="dashboard-nav-item" (click)="logout()">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-        </nav>
-    </ng-template>
-    <ng-template #elseBlock>
-        <div *ngIf="user; then userBlock; else homeBlock;"></div>
-        <ng-template #userBlock>
-            <nav class="dashboard-nav-list">
-                <a routerLink="/packages" routerLinkActive="active" class="dashboard-nav-item">
-                    <i class="fas fa-home"></i>
-                    Home
-                </a>
-                <a routerLink="/packages" routerLinkActive="active" class="dashboard-nav-item active">
-                    <i class="fas fa-tachometer-alt"></i>
-                    Packages
-                </a>
-                <a routerLink="/bookings" routerLinkActive="active" class="dashboard-nav-item active">
-                    <i class="fas fa-tachometer-alt"></i>
-                    Bookings
-                </a>
-                <a routerLink="/customeredit" routerLinkActive="active" class="dashboard-nav-item">
-                    <i class="fas fa-user"></i> Profile
-                </a>
-                <div class="nav-item-divider"></div>
-                <a routerLink="/home" routerLinkActive="active" (click)="logout()" class="dashboard-nav-item">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-            </nav>
-        </ng-template>
-        <ng-template #homeBlock>
-            <nav class="dashboard-nav-list">
-                <a routerLink="/home" routerLinkActive="active" class="dashboard-nav-item">
-                    <i class="fas fa-home"></i>
-                    Home
-                </a>
-                <a routerLink="/login" routerLinkActive="active" class="dashboard-nav-item active">
-                    <i class="fas fa-tachometer-alt"></i>
-                    Login
-                </a>
-                <a routerLink="/sign-up" routerLinkActive="active" class="dashboard-nav-item"><i
-                        class="fas fa-file-upload"></i>
-                    Register
-                </a>
-            </nav>
-        </ng-template>
-    </ng-template>
+    <nav class="dashboard-nav-list">
+        <a routerLink="/home" routerLinkActive="active" class="dashboard-nav-item">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a routerLink="/login" routerLinkActive="active" class="dashboard-nav-item active">
+            <i class="fas fa-user-circle"></i>
+            Login
+        </a>
+        <a routerLink="/sign-up" routerLinkActive="active" class="dashboard-nav-item"><i class="fas fa-user-plus"></i>
+            Register
+        </a>
+        <a routerLink="/about-us" routerLinkActive="active" class="dashboard-nav-item"><i class="fas fa-users"></i>
+            About Us
+        </a>
+    </nav>
 </div>

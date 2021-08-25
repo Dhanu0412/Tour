@@ -18,7 +18,7 @@ export class PackcreateComponent implements OnInit {
   }
   addPackage() {
     this.restApi.createPackage(this.packageDetails).subscribe((data: {}) => {
-      this.router.navigate(['/packlist']);
+      this.router.navigate(['/packadmin']);
     });
   }
 

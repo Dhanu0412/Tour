@@ -53,6 +53,28 @@ a:hover {
     color: #222a30;
     text-decoration: underline;
 }
+.glow {
+  font-size: 30px;
+  color: rgb(247, 7, 7);
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f80a0a, 0 0 40px #f80a0a, 0 0 50px #f80a0a, 0 0 60px #f80a0a, 0 0 70px #f80a0a;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #f80a0a, 0 0 40px #f80a0a, 0 0 50px #f80a0a, 0 0 60px #f80a0a, 0 0 70px #f80a0a, 0 0 80px #f80a0a;
+  }
+}
+
+b{
+    color: rgb(230, 36, 36);
+    font-weight: bold;
+    font-size: 16px;
+}
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Nunito", sans-serif;
@@ -435,4 +457,22 @@ h1, .h1 {
     .dashboard-compact .dashboard-toolbar {
         left: 0;
     }
+}
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .carousel-caption {
+    width: 50%;
+    height:25%;
+	background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    color:#fff;
+	font-size: 16px;
+    align-items: center;
 }

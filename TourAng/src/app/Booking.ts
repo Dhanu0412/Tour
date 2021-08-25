@@ -3,8 +3,9 @@ export interface Booking {
     noOfDays: number,
     noOfPeope: number,
     packageCost: number,
-    startDate: number,
-    endDate: number,
+    startDate: Date,
+    endDate: Date,
+    bookingDate: Date,
     pack: {
         packageID: number,
         packageName: string,
@@ -23,7 +24,7 @@ export interface Booking {
         gender: string,
         password: string,
         email: string,
-        dateOfBirth: number,
+        dateOfBirth: Date,
         phone: number,
         address: {
             doorno: number,

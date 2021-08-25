@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(
     public router: Router,
     public aroute: ActivatedRoute,
-    public restApi: CustomerserviceService
+    public restApi: CustomerserviceService,
   ) { }
 
   ngOnInit(): void {
@@ -52,14 +52,14 @@ export class LoginComponent implements OnInit {
           }
         })
       }
-      else if (this.customer.password != this.customerDetails.password) {
+      else if (this.customer.password == this.customerDetails.password) {
+        this.router.navigate(['/packlist-customer', this.customer.customerID]);
+      }
+      if (this.customerDetails.password != this.customer.password) {
         Swal.fire({
           text: 'Please Verify Your Password!',
           icon: 'warning'
         });
-      }
-      else {
-        this.router.navigate(['/packages', this.customer.customerID]);
       }
     }
   }

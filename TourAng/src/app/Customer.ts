@@ -8,7 +8,7 @@ export interface Customer {
     password: string,
     email: string,
     dateOfBirth: number,
-    phone: number,
+    phone: string,
     address: {
         doorno: number,
         street: string,

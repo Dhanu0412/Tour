@@ -131,7 +131,7 @@ h1, .h1 {
     -webkit-flex-grow: 2;
     -ms-flex-positive: 2;
     flex-grow: 2;
-    padding: 25px;
+    padding: 15px;
 }
 
 .dashboard-nav {
@@ -436,12 +436,18 @@ h1, .h1 {
         left: 0;
     }
 }
-body{
-    background-color: #dee9ff;
+
+.container{
+    display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .registration-form{
-	padding: 50px 0;
+	padding: 50px 50px;
+    width:60%;
+    border-radius: 15px;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.75);
 }
 
 .registration-form form{
@@ -456,7 +462,19 @@ body{
 
 .registration-form .form-icon{
 	text-align: center;
-    background-color: #5891ff;
+    background-color: #51CB20;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 100px;
+}
+.registration-form .form-icon-douche{
+	text-align: center;
+    background-color: #fff;
     border-radius: 50%;
     font-size: 40px;
     color: white;
@@ -469,8 +487,8 @@ body{
 
 .registration-form .item{
 	border-radius: 20px;
-    margin-bottom: 25px;
-    padding: 10px 20px;
+    margin-bottom: 15px;
+    padding: 10px 10px;
 }
 
 .registration-form .create-account{
@@ -478,7 +496,7 @@ body{
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
-    background-color: #5791ff;
+    background-color: #51CB20;
     border: none;
     color: white;
     margin-top: 20px;
@@ -532,4 +550,35 @@ body{
         font-size: 30px;
         line-height: 70px;
     }
+}
+
+.cont {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.cont input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+/* On mouse-over, add a grey background color */
+.cont:hover  {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.cont input:checked  {
+  background-color: #51CB20;
 }

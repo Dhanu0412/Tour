@@ -38,7 +38,7 @@ export class PackeditComponent implements OnInit {
   updatePackage() {
     if (window.confirm('Are you sure , you want to update?')) {
       this.restApi.updatePackage(this.packageData).subscribe((data: {}) => {
-        this.router.navigate(['/packlist']);
+        this.router.navigate(['/packadmin']);
       });
     }
 

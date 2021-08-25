@@ -11,16 +11,10 @@ import { CustomerserviceService } from './customerservice.service';
 export class AppComponent {
   title = 'TourAng';
   public cid: any = this.aroute.snapshot.params['id'];
-  public user = false;
-  constructor(public restApi: CustomerserviceService,
-    public aroute: ActivatedRoute,
-    public router: Router) { }
+  constructor(public router: Router,
+    public aroute: ActivatedRoute) { }
+
   ngOnInit(): void {
-    if (this.cid) {
-      this.user = true;
-    }
-    else {
-      this.user = false;
-    }
   }
+
 }
