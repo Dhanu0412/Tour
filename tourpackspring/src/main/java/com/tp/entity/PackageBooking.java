@@ -14,7 +14,10 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+/**
+ * The Class PackageBooking.
+ * @author Chiranjeevi
+ */
 @Entity
 public class PackageBooking {
 

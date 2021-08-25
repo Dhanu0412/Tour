@@ -28,7 +28,7 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 	/**
 	 * Gets the session.
-	 * 
+	 * @author Bharath
 	 * @return the session
 	 */
 	protected Session getSession()
@@ -71,7 +71,6 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 	/**
 	 * Gets the customer.
-	 * 
 	 * @author Bharath
 	 * @param email the email 
 	 * @return the customer
@@ -87,7 +86,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
 	/**
 	 * Update customer.
-	 *
+	 * @author Bharath
 	 * @param customer the customer
 	 * @return the list
 	 */
@@ -101,7 +100,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
 	/**
 	 * Delete customer.
-	 *
+	 * @author Bharath
 	 * @param cno the cno
 	 * @return the list
 	 */
@@ -119,7 +118,6 @@ public class CustomerDaoImpl implements CustomerDao{
 
 	/**
 	 * Gets the customer.
-	 * 
 	 * @author Bharath
 	 * @param cid the cid
 	 * @return the customer

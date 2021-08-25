@@ -12,7 +12,7 @@ public interface CustomerDao {
 	
 	/**
 	 * Creates the customer.
-	 *
+	 *@author Bharath
 	 * @param customer This Param includes 
 	 *                  the customer object
 	 */
@@ -20,14 +20,14 @@ public interface CustomerDao {
 	
 	/**
 	 * Gets the customer list.
-	 *
+	 * @author Bharath
 	 * @return the customer list
 	 */
 	public List<Customer> getAllCustomers();
 	
 	/**
 	 * Update customer.
-	 *
+	 * @author Bharath
 	 * @param customer This Param includes 
 	 *                  the customer object
 	 * @return the list
@@ -36,7 +36,7 @@ public interface CustomerDao {
 	
 	/**
 	 * Delete customer.
-	 *
+	 * @author Bharath
 	 * @param cno This Param includes the
 	 *           id of the customer to be deleted
 	 * @return the list
@@ -45,7 +45,7 @@ public interface CustomerDao {
 	
 	/**
 	 * Gets the customer.
-	 *
+	 * @author Bharath
 	 * @param cid This Param includes the
 	 *           id of the customer object to be retreived
 	 * @return the customer
@@ -54,7 +54,7 @@ public interface CustomerDao {
 	
 	/**
 	 * Gets the customer.
-	 *
+	 * @author Bharath
 	 * @param email This Param includes the
 	 *           email of the customer object to be retreived
 	 * @return the customer
