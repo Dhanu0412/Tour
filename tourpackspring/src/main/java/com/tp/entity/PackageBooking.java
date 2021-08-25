@@ -27,12 +27,16 @@ public class PackageBooking {
 	private double packageCost;
 
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "DD-MM-YYYY")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date startDate;
 
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "DD-MM-YYYY")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date endDate;
+	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	private Date bookingDate;
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "packageID", referencedColumnName = "PACKAGEID")
@@ -52,7 +56,7 @@ public class PackageBooking {
 	}
 
 	public PackageBooking(int packBookID, int noOfDays, int noOfPeope, double packageCost, Date startDate, Date endDate,
-			Packages pack, Customer customer, RentalTransport rentTransport) {
+			Date bookingDate, Packages pack, Customer customer, RentalTransport rentTransport) {
 		super();
 		this.packBookID = packBookID;
 		this.noOfDays = noOfDays;
@@ -60,6 +64,7 @@ public class PackageBooking {
 		this.packageCost = packageCost;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.bookingDate = bookingDate;
 		this.pack = pack;
 		this.customer = customer;
 		this.rentTransport = rentTransport;
@@ -113,6 +118,14 @@ public class PackageBooking {
 		this.endDate = endDate;
 	}
 
+	public Date getBookingDate() {
+		return bookingDate;
+	}
+
+	public void setBookingDate(Date bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+
 	public Packages getPack() {
 		return pack;
 	}
@@ -140,8 +153,9 @@ public class PackageBooking {
 	@Override
 	public String toString() {
 		return "PackageBooking [packBookID=" + packBookID + ", noOfDays=" + noOfDays + ", noOfPeope=" + noOfPeope
-				+ ", packageCost=" + packageCost + ", startDate=" + startDate + ", endDate=" + endDate + ", pack="
-				+ pack + ", customer=" + customer + ", rentTransport=" + rentTransport + "]";
+				+ ", packageCost=" + packageCost + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", bookingDate=" + bookingDate + ", pack=" + pack + ", customer=" + customer + ", rentTransport="
+				+ rentTransport + "]";
 	}
 
 }
