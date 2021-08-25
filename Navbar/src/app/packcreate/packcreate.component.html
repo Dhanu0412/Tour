@@ -1,8 +1,9 @@
-<div class='dashboard'>
+<!-- <div class='dashboard'>
   <navbar></navbar>
   <div class='dashboard-app'>
     <div class='dashboard-content'>
       <div class="container" id="container">
+
         <div class="form-group">
           <label for="lblpname">Package Name </label>
           <input type="text" class="form-control" id="lblpname" name="packageName" placeholder="Enter Package Name"
@@ -63,5 +64,58 @@
         </div>
       </div>
     </div>
+  </div>
+</div> -->
+
+
+<div class='dashboard'>
+  <navbar></navbar>
+  <div class='dashboard-app'>
+      <div class='dashboard-content'>
+          <p>sign-up works!</p>
+
+          <div class="package-create-form">
+              <form>
+                  <div class="form-icon">
+                      <span><i class="icon icon-user"></i></span>
+                  </div>
+                  <div class="form-group">
+                      <input  type="text" class="form-control item" id="lblpname" name="packageName" placeholder="Enter Package Name"
+                      [(ngModel)]="packageDetails.packageName">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="lbllocation " name="location" placeholder="Enter Location"
+                      [(ngModel)]="packageDetails.location" >
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="lbliternary" name="itenary" placeholder="Enter Iternary"
+                      [(ngModel)]="packageDetails.itenary" >
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="lblhotel" name="hotelName" placeholder="Enter Hotel Name"
+                      [(ngModel)]="packageDetails.hotelName" >
+                  </div>
+                  <div class="form-group">
+                      <input type="number" class="form-control" id="lblhcost" name="hotelCostPerDay"
+                      placeholder="Enter Hotel Cost Per Day" [(ngModel)]="packageDetails.hotelCostPerDay">
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="lblcost" name="costPerDay" placeholder="Enter Cost Per Day"
+                    [(ngModel)]="packageDetails.costPerDay" >
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="lblimage" name="packageImage"
+                  placeholder="Enter Package Image Location" [(ngModel)]="packageDetails.packageImage" >
+              </div>
+                  <div class="form-group">
+                      <button type="button" (click)="addPackage()" class="btn btn-block create-account">Create Account</button>
+                  </div>
+              </form>
+              
+          </div>
+          <div class='container'>
+
+          </div>
+      </div>
   </div>
 </div>
