@@ -103,7 +103,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <input class="form-control item" id="lbldob"
-                                    [ngModel]="customerData.dateOfBirth | date: 'dd-MM-yyyy'"
+                                    [ngModel]="customerData.dateOfBirth | date: 'dd/MM/yyyy'"
                                     (ngModelChange)="customerData.dateOfBirth=$event" name="dateOfBirth" type="date" />
                             </div>
                         </div>

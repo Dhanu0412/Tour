@@ -30,8 +30,8 @@
                                 <td class="text-center">{{booking.pack.packageName}}</td>
                                 <td class="text-center">{{booking.noOfDays}}</td>
                                 <td class="text-center">{{booking.noOfPeope}}</td>
-                                <td class="text-center">{{booking.startDate}}</td>
-                                <td class="text-center">{{booking.endDate}}</td>
+                                <td class="text-center">{{booking.startDate | date:'yyyy-MM-dd'}}</td>
+                                <td class="text-center">{{booking.endDate | date:'yyyy-MM-dd'}}</td>
                                 <td class="text-center">{{booking.packageCost}}</td>
                             </tr>
 

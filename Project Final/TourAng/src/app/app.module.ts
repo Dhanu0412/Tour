@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PackagebookingserviceService } from './packagebookingservice.service';
 import { PackserviceService } from './packservice.service';
-import { DatepickerModule } from 'ng2-datepicker';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { DatepickerModule } from 'ng2-datepicker';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    DatepickerModule
+    FormsModule
   ],
   providers: [CustomerserviceService, PackagebookingserviceService, PackserviceService],
   bootstrap: [AppComponent]

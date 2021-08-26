@@ -93,7 +93,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label class="form-check-label" for="lbldate"> Date Of Birth </label>
+                            <label class="form-check-label" for="lbldob"> Date Of Birth </label>
                         </div>
                         <div class="col">
                             <label class="form-check-label" for="lblphone"> Phone </label>
@@ -103,12 +103,11 @@
                         <div class="col">
                             <div class="form-group">
                                 <input class="form-control item" id="lbldob"
-                                    [ngModel]="customerDetails.dateOfBirth | date: 'dd-MM-yyyy'"
+                                    [ngModel]="customerDetails.dateOfBirth | date: 'dd/MM/yyyy'"
                                     (ngModelChange)="customerDetails.dateOfBirth=$event" name="dateOfBirth"
                                     type="date" />
                             </div>
                         </div>
-
                         <div class="col">
                             <div class="form-group">
                                 <input type="text" class="form-control item" id="lblphone" name="phone"

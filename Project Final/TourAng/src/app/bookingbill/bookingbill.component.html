@@ -4,7 +4,7 @@
         <div class='dashboard-content'>
             <div class='container'>
                 <div class="registration-form">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="form-icon-douche"></div>
                         <div class="form-icon">
                             <span><i class="fas fa-skiing"></i></span>
@@ -17,39 +17,48 @@
                         </div>
                         <div class="form-icon-douche"></div>
                     </div>
-                    <div class="row">
+                    <div class="row text-center">
                         <h2 class="text-center"><b>Bill</b></h2>
                     </div>
-                    <div class="row">
+                    <div class="row text-center">
                         <div class="col">
                             <h6>Hotel Cost Per Day</h6>
                         </div>
                         <div class="col">
-                            <h6>{{pack.hotelCostPerDay}}</h6>
+                            <h6>{{pack.hotelCostPerDay | currency:'INR'}}</h6>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row text-center">
                         <div class="col">
                             <h6>Cost Per Day</h6>
                         </div>
                         <div class="col">
-                            <h6>{{pack.costPerDay}}</h6>
+                            <h6>{{pack.costPerDay | currency:'INR'}}</h6>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row text-center">
                         <div class="col">
-                            <h6>Actual Cost</h6>
+                            <h6>Actual Cost of Booking</h6>
                         </div>
                         <div class="col">
-                            <h6>{{actualprice}}</h6>
+                            <h6>{{actualprice | currency:'INR'}}</h6>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row text-center">
                         <div class="col">
                             <h6>Discounted Price</h6>
                         </div>
                         <div class="col">
-                            <h6>{{discount}}</h6>
+                            <h6>-&nbsp;{{discount | currency:'INR'}}</h6>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row text-center">
+                        <div class="col">
+                            <h6>Total Cost of Booking</h6>
+                        </div>
+                        <div class="col">
+                            <h6>{{totalprice | currency:'INR'}}</h6>
                         </div>
                     </div>
                     <div class="form-group">

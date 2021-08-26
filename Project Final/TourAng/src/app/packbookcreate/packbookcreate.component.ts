@@ -1,9 +1,7 @@
-import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Booking } from '../Booking';
-import { BookingbillComponent } from '../bookingbill/bookingbill.component';
 import { CustomerserviceService } from '../customerservice.service';
 import { PackagebookingserviceService } from '../packagebookingservice.service';
 import { PackserviceService } from '../packservice.service';
@@ -24,9 +22,9 @@ export class PackbookcreateComponent implements OnInit {
     noOfDays: 0,
     noOfPeope: 0,
     packageCost: 0,
-    startDate: new Date(),
-    endDate: new Date(),
-    bookingDate: new Date(),
+    startDate: "",
+    endDate: "",
+    bookingDate: "",
     packBookID: 0,
     pack: {
       packageID: 0,
@@ -38,7 +36,7 @@ export class PackbookcreateComponent implements OnInit {
       costPerDay: 0
     },
     customer: {
-      customerID: 0,
+      customerID: this.cid,
       customerName: {
         fname: '',
         lname: ''
@@ -46,13 +44,13 @@ export class PackbookcreateComponent implements OnInit {
       gender: '',
       password: '',
       email: '',
-      dateOfBirth: new Date(),
-      phone: "",
+      dateOfBirth: '',
+      phone: '',
       address: {
         doorno: 0,
         street: '',
         city: '',
-        pincode: 0
+        pincode: 0,
       }
     }
   };

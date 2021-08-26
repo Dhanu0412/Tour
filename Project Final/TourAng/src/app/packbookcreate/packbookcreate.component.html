@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 <label for="lblsdate">Start Date </label> <br />
                                 <input class="form-control item" id="lblsdate"
-                                    [ngModel]="booking.startDate | date: 'dd-MM-yyyy'"
+                                    [ngModel]="booking.startDate | date: 'dd/MM/yyyy'"
                                     (ngModelChange)="booking.startDate=$event" name="startDate" type="date" />
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <label for="lbledate">End Date </label> <br />
                                 <input class="form-control item" id="lbledate"
-                                    [ngModel]="booking.endDate | date: 'dd-MM-yyyy'"
+                                    [ngModel]="booking.endDate | date: 'dd/MM/yyyy'"
                                     (ngModelChange)="booking.endDate=$event" name="endDate" type="date" />
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label for="lblbdate">Booking Date</label>
                                 <input class="form-control item" id="lblbdate"
-                                    [ngModel]="booking.bookingDate | date: 'dd-MM-yyyy'"
+                                    [ngModel]="booking.bookingDate | date: 'dd/MM/yyyy'"
                                     (ngModelChange)="booking.bookingDate=$event" name="bookingDate" type="date" />
                             </div>
                         </div>

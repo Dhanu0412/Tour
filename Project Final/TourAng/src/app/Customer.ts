@@ -7,7 +7,7 @@ export interface Customer {
     gender: string;
     password: string;
     email: string;
-    dateOfBirth: Date;
+    dateOfBirth: string;
     phone: string;
     address: {
         doorno: number;

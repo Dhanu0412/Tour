@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Customer } from '../Customer';
 import { CustomerserviceService } from '../customerservice.service';
 
 @Component({
@@ -19,7 +18,7 @@ export class SignUpComponent implements OnInit {
     gender: '',
     password: '',
     email: '',
-    dateOfBirth: new Date(),
+    dateOfBirth: '12-02-1999',
     phone: '',
     address: {
       doorno: 0,

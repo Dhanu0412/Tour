@@ -21,7 +21,7 @@ export class CustomereditComponent implements OnInit {
     gender: "",
     password: "",
     email: "",
-    dateOfBirth: new Date(),
+    dateOfBirth: "",
     phone: "",
     address: {
       doorno: 0,
