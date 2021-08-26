@@ -2,48 +2,13 @@
   <navbar-admin></navbar-admin>
   <div class='dashboard-app'>
     <div class='dashboard-content'>
-      <p>customer-list works!</p>
-      <!-- <table class="table table-dark">
-    <thead>
-      <tr>
-          <th *ngFor = 'let column of columns'>{{column}}</th>
-      </tr>
-
-    </thead>
-    <tbody>
-        <tr *ngFor= 'let customer of customers'>
-          <td>{{customer.customerID}}</td>
-          <td>{{customer.customerName.fname}}</td>
-          <td>{{customer.customerName.lname}}</td>
-          <td>{{customer.gender}}</td>
-          <td>{{customer.email}}</td>
-          <td>{{customer.phone}}</td>
-          <td>{{customer.dateOfBirth}}</td>
-          <td>{{customer.address.doorno}}</td>
-          <td>{{customer.address.street}}</td>
-          <td>{{customer.address.city}}</td>
-          <td>{{customer.address.pincode}}</td>
-          <td>
-            <button type="button"  class="btn btn-primary btn-sm">edit</button>
-          </td>
-          <td>
-            <button type="button" (click) = 'deleteCustomer(customer.customerID)' class="btn btn-primary btn-sm">delete</button>
-          </td>
-          <td>
-            <button type="button"  class="btn btn-primary btn-sm">Bookings</button>
-          </td>
-        </tr>
-    </tbody>
-  </table> -->
-
-
       <div class="container mt-5 px-2">
         <div class="mb-2 d-flex justify-content-between align-items-center">
         </div>
         <div class="table-responsive">
           <table class="table table-responsive table-borderless">
             <thead>
-              <tr class="bg-light">
+              <tr class="bg-dark text-light">
                 <th scope="col" class="text-center">Id</th>
                 <th scope="col" class="text-center">First name</th>
                 <th scope="col" class="text-center">Last name</th>
@@ -55,7 +20,7 @@
                 <th scope="col" class="text-center">Street</th>
                 <th scope="col" class="text-center">City</th>
                 <th scope="col" class="text-center">Pincode</th>
-                <th scope="col" class="text-center"><span>Actions</span></th>
+                <th scope="col" class="text-center"><span>Delete</span></th>
                 <th scope="col" class="text-center"><span>Bookings</span></th>
               </tr>
             </thead>

@@ -46,6 +46,10 @@ export class CustomerserviceService {
     return this.http.get<Customer>(this.resturl + '/getCus/' + cid).pipe(retry(1), catchError(this.handleError));
   }
 
+  updateCustomer(customer: any): Observable<Customer[]> {
+    return this.http.put<Customer[]>(this.resturl + '/updateCus', JSON.stringify(customer), this.httpOptions).pipe(retry(1), catchError(this.handleError));
+  }
+
   handleError(err: any) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

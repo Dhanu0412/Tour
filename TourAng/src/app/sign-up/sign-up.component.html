@@ -102,8 +102,10 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <input type="date" class="form-control item" id="lbldate" name="dateOfBirth"
-                                    placeholder="Enter Date Of Birth" [(ngModel)]="customerDetails.dateOfBirth">
+                                <input class="form-control item" id="lbldob"
+                                    [ngModel]="customerDetails.dateOfBirth | date: 'dd-MM-yyyy'"
+                                    (ngModelChange)="customerDetails.dateOfBirth=$event" name="dateOfBirth"
+                                    type="date" />
                             </div>
                         </div>
 

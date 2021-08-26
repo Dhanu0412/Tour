@@ -38,7 +38,10 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="profile-overview">
-                                            <button (click)="packBook(pack.packageID)">Book</button>
+                                            <button type="button"
+                                                routerLink="/packbookcreate/{{cid}}/{{pack.packageID}}"
+                                                routerLinkActive="active"
+                                                class="btn btn-block create-account">Book</button>
                                         </div>
                                     </div>
                                 </div>

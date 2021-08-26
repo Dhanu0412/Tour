@@ -6,19 +6,19 @@
         </div>
     </header>
     <nav class="dashboard-nav-list">
-        <a routerLink="/packlist-customer" routerLinkActive="active" class="dashboard-nav-item active">
+        <a routerLink="/packlist-customer/{{cid}}" routerLinkActive="active" class="dashboard-nav-item active">
             <i class="fas fa-tachometer-alt"></i>
             Packages
         </a>
-        <a routerLink="/bookings" routerLinkActive="active" class="dashboard-nav-item active">
+        <a routerLink="/bookings/{{cid}}" routerLinkActive="active" class="dashboard-nav-item active">
             <i class="fas fa-list-ul"></i>
             Bookings
         </a>
-        <a routerLink="/packlist-customer" routerLinkActive="active" class="dashboard-nav-item">
+        <a routerLink="/customeredit/{{cid}}" routerLinkActive="active" class="dashboard-nav-item">
             <i class="fas fa-user"></i> Profile
         </a>
         <div class="nav-item-divider"></div>
-        <a routerLink="/home" routerLinkActive="active" class="dashboard-nav-item">
+        <a (click)="logout()" class="dashboard-nav-item">
             <i class="fas fa-sign-out-alt"></i> Logout
         </a>
     </nav>

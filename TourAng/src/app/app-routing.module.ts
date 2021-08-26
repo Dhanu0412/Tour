@@ -2,8 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AdminComponent } from './admin/admin.component';
+import { BookingbillComponent } from './bookingbill/bookingbill.component';
+import { BookingsComponent } from './bookings/bookings.component';
 import { CustomerBookingsComponent } from './customer-bookings/customer-bookings.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomereditComponent } from './customeredit/customeredit.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +14,7 @@ import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { NavbarUserComponent } from './navbar-user/navbar-user.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PackadminComponent } from './packadmin/packadmin.component';
+import { PackbookcreateComponent } from './packbookcreate/packbookcreate.component';
 import { PackcreateComponent } from './packcreate/packcreate.component';
 import { PackeditComponent } from './packedit/packedit.component';
 import { PacklistCustomerComponent } from './packlist-customer/packlist-customer.component';
@@ -26,7 +30,6 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'customeredit', component: CustomerListComponent },
   { path: 'customer-list', component: CustomerListComponent },
   { path: 'customer-bookings/:cid', component: CustomerBookingsComponent },
   { path: 'packadmin', component: PackadminComponent },
@@ -34,6 +37,10 @@ const routes: Routes = [
   { path: 'packedit/:pid', component: PackeditComponent },
   { path: 'packlist-customer/:cid', component: PacklistCustomerComponent },
   { path: 'about-us', component: AboutUsComponent },
+  { path: 'packbookcreate/:cid/:pid', component: PackbookcreateComponent },
+  { path: 'customeredit/:cid', component: CustomereditComponent },
+  { path: 'bookings/:cid', component: BookingsComponent },
+  { path: 'bookingbill/:cid/:pid/:ap/:dp/:tp', component: BookingbillComponent },
 ];
 
 @NgModule({
@@ -58,4 +65,8 @@ export const routingComponents = [
   PackcreateComponent,
   PackeditComponent,
   PacklistCustomerComponent,
-  AboutUsComponent];
+  AboutUsComponent,
+  PackbookcreateComponent,
+  CustomereditComponent,
+  BookingbillComponent,
+  BookingsComponent];

@@ -10,7 +10,7 @@ import { PackserviceService } from '../packservice.service';
 })
 export class PacklistCustomerComponent implements OnInit {
 
-  public cid: any = this.aroute.snapshot.params['id'];
+  public cid: any = this.aroute.snapshot.params['cid'];
   packageData: any = [];
 
   constructor(
@@ -28,10 +28,5 @@ export class PacklistCustomerComponent implements OnInit {
       .getPackages()
       .subscribe((data: any) => (this.packageData = data));
   }
-
-  packBook(pid: any) {
-    this.router.navigateByUrl("/" + this.cid + "/" + pid);
-  }
-
 
 }

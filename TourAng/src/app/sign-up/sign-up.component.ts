@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit {
     gender: '',
     password: '',
     email: '',
-    dateOfBirth: 0,
+    dateOfBirth: new Date(),
     phone: '',
     address: {
       doorno: 0,

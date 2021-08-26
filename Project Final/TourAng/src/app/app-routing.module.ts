@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'packbookcreate/:cid/:pid', component: PackbookcreateComponent },
   { path: 'customeredit/:cid', component: CustomereditComponent },
   { path: 'bookings/:cid', component: BookingsComponent },
-  { path: 'bookingbill/:cid', component: BookingbillComponent },
+  { path: 'bookingbill/:cid/:pid/:ap/:dp/:tp', component: BookingbillComponent },
 ];
 
 @NgModule({

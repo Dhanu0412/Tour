@@ -8,9 +8,9 @@ import { Booking } from './Booking';
   providedIn: 'root'
 })
 export class PackagebookingserviceService {
-  
+
   private resturl: string = 'http://localhost:8080/tourpackspring/packageBooking';
-  
+
   constructor(public http: HttpClient) { }
 
   httpOptions = {
@@ -19,22 +19,25 @@ export class PackagebookingserviceService {
     })
   }
 
-  getPackBookings(customerID: any):Observable<Booking[]>{
-    return  this.http
+  getPackBookings(customerID: any): Observable<Booking[]> {
+    return this.http
       .get<Booking[]>(
         this.resturl + '/getPackBookingCustomer/' + customerID,
         this.httpOptions
       )
       .pipe(retry(1), catchError(this.handleError));
-      
   }
 
-  handleError(err:any){
+  createPackBooking(booking: any): Observable<Booking> {
+    return this.http.post<Booking>(this.resturl + '/createPackBooking', JSON.stringify(booking), this.httpOptions).pipe(retry(1), catchError(this.handleError));
+  }
+
+  handleError(err: any) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
       errorMessage = err.error.message;
     }
-    else{
+    else {
       errorMessage = `Error code: ${err.status} \n Error Message : ${err.message}`
     }
     window.alert(errorMessage);
