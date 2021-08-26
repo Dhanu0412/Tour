@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * The Class CustomerTest.
- * @author Bharath
+ * @author Dhanushya
  */
 public class CustomerDaoTest {
 

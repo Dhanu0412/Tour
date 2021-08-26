@@ -13,17 +13,33 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tp.entity.PackageBooking;
 
+/**
+ * The Class PackageBookingDaoImpl.
+ * @author Dhanushya
+ */
 @Repository
 @Transactional
 public class PackageBookingDaoImpl implements PackageBookingDao {
 	
+	/** The session factory. */
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	/**
+	 * Gets the session.
+	 * 
+	 * @return the session
+	 */
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
 
+	/**
+	 * Creates the packagebooking.
+	 * 
+	 * @author Dhanushya
+	 * @param customer the packagebooking
+	 */
 	@Override
 	public void createPackageBooking(PackageBooking packBooking) {
 		System.out.println(packBooking);
@@ -56,6 +72,12 @@ public class PackageBookingDaoImpl implements PackageBookingDao {
 		System.out.println("PackageBooking has been stored successfully in DB !");
 	}
 
+	/**
+	 * Gets the packagebooking list.
+	 * 
+	 * @author Dhanushya
+	 * @return the packagebooking list
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PackageBooking> getAllPackageBookings() {
@@ -66,6 +88,12 @@ public class PackageBookingDaoImpl implements PackageBookingDao {
 		return packBookinglist;
 	}
 
+	/**
+	 * Updates the packagebooking.
+	 * 
+	 * @author Dhanushya
+	 * @return the packagebooking.
+	 */
 	@Override
 	public List<PackageBooking> updatePackageBooking(PackageBooking packBooking) {
 
@@ -76,6 +104,12 @@ public class PackageBookingDaoImpl implements PackageBookingDao {
 		return getAllPackageBookings();
 	}
 
+	/**
+	 * Delete packagebooking.
+	 * @author Dhanushya
+	 * @param pbno the pbno
+	 * @return the list
+	 */
 	@Override
 	public List<PackageBooking> deletePackageBooking(int pbno) {
 
@@ -88,6 +122,13 @@ public class PackageBookingDaoImpl implements PackageBookingDao {
 		return getAllPackageBookings();
 	}
 
+	/**
+	 * Gets the packagebooking.
+	 * 
+	 * @author Dhanushya
+	 * @param pbid the pbid
+	 * @return the packagebooking
+	 */
 	@Override
 	public PackageBooking getPackageBookingById(int pbid) {
 
@@ -98,6 +139,12 @@ public class PackageBookingDaoImpl implements PackageBookingDao {
 		return packBooking;
 	}
 
+	/**
+	 * Gets the packagebooking.
+	 * @author Dhanushya
+	 * @param cid the cid
+	 * @return the packagebooking list.
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PackageBooking> getPackageBookingsByCId(int cid) {
